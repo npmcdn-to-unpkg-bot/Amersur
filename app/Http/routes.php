@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/upload/{folder}/{width}x{height}/{image}', ['as' => 'image.adaptiveResize', 'uses' => 'ImageController@adaptiveResize']);
 
-Route::get('home', 'HomeController@index');
+Route::get('/', function () { return view('frontend.index'); });
+Route::get('nosotros', function () { return view('frontend.nosotros'); });
+Route::get('servicios', function () { return view('frontend.servicios'); });
+Route::get('galerias', function () { return view('frontend.galeria'); });
+Route::get('testimonios', function () { return view('frontend.testimonios'); });
+Route::get('contacto', function () { return view('frontend.contacto'); });
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
