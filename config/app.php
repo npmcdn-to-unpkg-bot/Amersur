@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'America/Lima',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'es',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -136,14 +136,23 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
+		/* 
+         * Providers Externos
+         */
+        'Collective\Html\HtmlServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
+        'Jenssegers\Date\DateServiceProvider',
+
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
-		'App\Providers\ConfigServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'Amersur\Providers\AppServiceProvider',
+		'Amersur\Providers\BusServiceProvider',
+		'Amersur\Providers\ConfigServiceProvider',
+		'Amersur\Providers\EventServiceProvider',
+		'Amersur\Providers\RouteServiceProvider',
 
 	],
 
@@ -192,6 +201,14 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		/* Providers externos */
+        'Form'      => 'Collective\Html\FormFacade',
+        'HTML'      => 'Collective\Html\HtmlFacade',
+        'Image'     => 'Intervention\Image\Facades\Image',
+        'Debugbar'  => 'Barryvdh\Debugbar\Facade',
+        'Flash'     => 'Laracasts\Flash\Flash',
+        'Date'      => 'Jenssegers\Date\Date'
 
 	],
 

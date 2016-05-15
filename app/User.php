@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Amersur;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

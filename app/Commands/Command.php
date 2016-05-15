@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace Amersur\Commands;
 
 abstract class Command {
 

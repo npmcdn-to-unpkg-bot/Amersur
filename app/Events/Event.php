@@ -1,4 +1,4 @@
-<?php namespace App\Events;
+<?php namespace Amersur\Events;
 
 abstract class Event {
 
