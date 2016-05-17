@@ -23,105 +23,46 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
     <div class="banner">
-        <div id="rev_slider_213_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="woocommercebig" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
-            <div id="rev_slider_213_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.1.1RC">
-                <ul>
-                    {{-- SLIDER --}}
-                    <li data-index="rs-1" data-transition="slideremovehorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off" data-title="Premium Computer Hardware" data-description="">
-                        {{-- IMAGEN --}}
-                        <img src="/upload/slider/dummy.png" alt="" width="1200" height="600" data-lazyload="/upload/slider/img1.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
 
-                        {{-- TITULO --}}
-                        <div class="tp-caption tp-shape tp-shapewrapper tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['30','30','30','30']" data-y="['top','top','top','top']" data-voffset="['30','30','30','30']" data-width="['430','430','430','420']" data-height="540" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1200;e:Power3.easeInOut;s:1200;e:Power3.easeInOut;" data-start="500" data-responsive_offset="on" style="z-index: 5;background-color:rgba(255, 255, 255, 0.8);border-color:rgba(0, 0, 0, 0);"></div>
+        <div id="slider_amersur" class="rev_slider fullwidthabanner" style="display:none;">
 
-                        {{-- TITULO --}}
-                        <div class="tp-caption Woo-TitleLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['60','60','60','60']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="600" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 6; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">Premium Computer Hardware</div>
+            <ul>
+                {{-- SLIDER --}}
+                <li data-index="rs-1" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Ken Burns">
 
-                        {{-- DESCRIPCION --}}
-                        <div class="tp-caption Woo-Rating tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['225','225','225','225']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="800" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: 370px; max-width: 370px; white-space: normal; line-height: 22px;text-align:center;">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio.</div>
+                    {{-- IMAGEN --}}
+                    <img src="/upload/slider/img1.jpg" alt="" data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 
-                        {{-- PRECIO TEXTO --}}
-                        <div class="tp-caption Woo-SubTitle tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','59','59','55']" data-y="['top','top','top','top']" data-voffset="['350','350','350','350']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="900" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">DESDE</div>
+                    {{-- FONDO --}}
+                    <div class="tp-caption tp-shape tp-shapewrapper tp-resizeme" id="slide-18-layer-9" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['227','231','191','141']" data-width="['full','full','full','full']" data-height="['150','141','119','119']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-responsive_offset="on" style="z-index: 5;background-color:rgba(255, 255, 255, 0.60);border-color:rgba(0, 0, 0, 0.50);"></div>
 
-                        {{-- PRECIO NUMERO --}}
-                        <div class="tp-caption Woo-PriceLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['380','380','380','380']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 10; min-width: 370px; max-width: 370px; white-space: normal; font-size: 40px; line-height: 40px;text-align:center;"><span class="amount">S/. 399.00</span></div>
+                    {{-- TITULO --}}
+                    <div class="tp-caption NotGeneric-Title tp-resizeme" id="slide-18-layer-1" data-x="['center','center','center','center']" data-hoffset="['-365','-269','-158','-69']" data-y="['middle','middle','middle','middle']" data-voffset="['194','196','169','119']" data-fontsize="['30','30','30','20']" data-lineheight="['40','30','30','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 6; white-space: nowrap; font-size: 30px; line-height: 40px; color: rgba(12, 12, 12, 1.00);">
+                        Premium Computer Hardware
+                    </div>
 
-                        {{-- BOTON INFO --}}
-                        <a class="tp-caption Woo-AddToCart rev-btn tp-resizeme" href="#" target="_self" data-x="['left','left','left','left']" data-hoffset="['139','139','139','132']" data-y="['top','top','top','top']" data-voffset="['449','449','449','450']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:200;e:Power1.easeInOut;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(243, 168, 71, 1.00);cursor:pointer;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1100" data-splitin="none" data-splitout="none" data-actions='' data-responsive_offset="on" style="z-index: 12; white-space: nowrap;padding:12px 75px 12px 50px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="pe-7s-look" style="font-size:25px; float: left; margin-top: -6px; margin-right: 6px;"></i> Ver detalles</a>
-                    </li>
-                    {{-- SLIDER --}}
-                    <li data-index="rs-2" data-transition="slideremovehorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off" data-title="Premium Computer Hardware" data-description="">
-                        {{-- IMAGEN --}}
-                        <img src="/upload/slider/dummy.png" alt="" width="1200" height="600" data-lazyload="/upload/slider/img2.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                    {{-- BOTON --}}
+                    <div class="tp-caption rev-btn rev-hiddenicon" id="slide-18-layer-12" data-x="['right','right','center','left']" data-hoffset="['40','20','0','20']" data-y="['top','top','top','top']" data-voffset="['550','530','449','345']" data-width="['none','none','none','229']" data-height="['none','none','none','44']" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(243, 168, 71, 1.00);" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:300;s:300;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" style="z-index: 7; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 500; color: rgba(12, 12, 12, 1.00);font-family:Roboto;background-color:rgba(254, 207, 114, 0.75);padding:12px 35px 12px 35px;border-color:rgba(0, 0, 0, 1.00);border-style:solid;border-width:1px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
+                        Ver detalles <i class="fa-icon-eye"></i>
+                    </div>
 
-                        {{-- TITULO --}}
-                        <div class="tp-caption tp-shape tp-shapewrapper tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['30','30','30','30']" data-y="['top','top','top','top']" data-voffset="['30','30','30','30']" data-width="['430','430','430','420']" data-height="540" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1200;e:Power3.easeInOut;s:1200;e:Power3.easeInOut;" data-start="500" data-responsive_offset="on" style="z-index: 5;background-color:rgba(255, 255, 255, 0.8);border-color:rgba(0, 0, 0, 0);"></div>
+                    {{-- PRECIO --}}
+                    <div class="tp-caption tp-resizeme" id="slide-18-layer-13" data-x="['right','right','left','right']" data-hoffset="['38','18','369','10']" data-y="['top','top','top','top']" data-voffset="['480','480','403','346']" data-fontsize="['40','30','25','20']" data-lineheight="['40','40','40','50']" data-width="['393','393','393','270']" data-height="['45','45','45','46']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: 393px; max-width: 393px; max-width: 45px; max-width: 45px; white-space: normal; font-size: 40px; line-height: 40px; font-weight: 900; color: rgba(12, 12, 12, 1.00);font-family:Roboto;text-align:right;">
+                        S/. 1,984,685.00
+                    </div>
 
-                        {{-- TITULO --}}
-                        <div class="tp-caption Woo-TitleLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['60','60','60','60']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="600" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 6; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">Premium Computer Hardware</div>
+                    {{-- DESCRIPCION --}}
+                    <div class="tp-caption tp-resizeme" id="slide-18-layer-14" data-x="['left','left','left','left']" data-hoffset="['17','27','27','27']" data-y="['top','top','top','top']" data-voffset="['518','516','516','516']" data-width="['570','634','634','634']" data-height="['76','77','77','77']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; min-width: 570px; max-width: 570px; max-width: 76px; max-width: 76px; white-space: normal; font-size: 16px; line-height: 25px; font-weight: 400; color: rgba(12, 12, 12, 1.00);font-family:Arial, Helvetica, sans-serif;">
+                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio.
+                    </div>
+                </li>
+            </ul>
 
-                        {{-- DESCRIPCION --}}
-                        <div class="tp-caption Woo-Rating tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['225','225','225','225']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="800" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: 370px; max-width: 370px; white-space: normal; line-height: 22px;text-align:center;">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio.</div>
+            <div class="tp-static-layers"></div>
+            <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
 
-                        {{-- PRECIO TEXTO --}}
-                        <div class="tp-caption Woo-SubTitle tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','59','59','55']" data-y="['top','top','top','top']" data-voffset="['350','350','350','350']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="900" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">DESDE</div>
-
-                        {{-- PRECIO NUMERO --}}
-                        <div class="tp-caption Woo-PriceLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['380','380','380','380']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 10; min-width: 370px; max-width: 370px; white-space: normal; font-size: 40px; line-height: 40px;text-align:center;"><span class="amount">S/. 399.00</span></div>
-
-                        {{-- BOTON INFO --}}
-                        <a class="tp-caption Woo-AddToCart rev-btn tp-resizeme" href="#" target="_self" data-x="['left','left','left','left']" data-hoffset="['139','139','139','132']" data-y="['top','top','top','top']" data-voffset="['449','449','449','450']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:200;e:Power1.easeInOut;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(243, 168, 71, 1.00);cursor:pointer;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1100" data-splitin="none" data-splitout="none" data-actions='' data-responsive_offset="on" style="z-index: 12; white-space: nowrap;padding:12px 75px 12px 50px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="pe-7s-look" style="font-size:25px; float: left; margin-top: -6px; margin-right: 6px;"></i> Ver detalles</a>
-                    </li>
-                    {{-- SLIDER --}}
-                    <li data-index="rs-3" data-transition="slideremovehorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off" data-title="Premium Computer Hardware" data-description="">
-                        {{-- IMAGEN --}}
-                        <img src="/upload/slider/dummy.png" alt="" width="1200" height="600" data-lazyload="/upload/slider/img3.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
-
-                        {{-- TITULO --}}
-                        <div class="tp-caption tp-shape tp-shapewrapper tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['30','30','30','30']" data-y="['top','top','top','top']" data-voffset="['30','30','30','30']" data-width="['430','430','430','420']" data-height="540" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1200;e:Power3.easeInOut;s:1200;e:Power3.easeInOut;" data-start="500" data-responsive_offset="on" style="z-index: 5;background-color:rgba(255, 255, 255, 0.8);border-color:rgba(0, 0, 0, 0);"></div>
-
-                        {{-- TITULO --}}
-                        <div class="tp-caption Woo-TitleLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['60','60','60','60']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="600" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 6; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">Premium Computer Hardware</div>
-
-                        {{-- DESCRIPCION --}}
-                        <div class="tp-caption Woo-Rating tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['225','225','225','225']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="800" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: 370px; max-width: 370px; white-space: normal; line-height: 22px;text-align:center;">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio.</div>
-
-                        {{-- PRECIO TEXTO --}}
-                        <div class="tp-caption Woo-SubTitle tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','59','59','55']" data-y="['top','top','top','top']" data-voffset="['350','350','350','350']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="900" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">DESDE</div>
-
-                        {{-- PRECIO NUMERO --}}
-                        <div class="tp-caption Woo-PriceLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['380','380','380','380']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 10; min-width: 370px; max-width: 370px; white-space: normal; font-size: 40px; line-height: 40px;text-align:center;"><span class="amount">S/. 399.00</span></div>
-
-                        {{-- BOTON INFO --}}
-                        <a class="tp-caption Woo-AddToCart rev-btn tp-resizeme" href="#" target="_self" data-x="['left','left','left','left']" data-hoffset="['139','139','139','132']" data-y="['top','top','top','top']" data-voffset="['449','449','449','450']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:200;e:Power1.easeInOut;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(243, 168, 71, 1.00);cursor:pointer;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1100" data-splitin="none" data-splitout="none" data-actions='' data-responsive_offset="on" style="z-index: 12; white-space: nowrap;padding:12px 75px 12px 50px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="pe-7s-look" style="font-size:25px; float: left; margin-top: -6px; margin-right: 6px;"></i> Ver detalles</a>
-                    </li>
-                    {{-- SLIDER --}}
-                    <li data-index="rs-4" data-transition="slideremovehorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off" data-title="Premium Computer Hardware" data-description="">
-                        {{-- IMAGEN --}}
-                        <img src="/upload/slider/dummy.png" alt="" width="1200" height="600" data-lazyload="/upload/slider/img4.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
-
-                        {{-- TITULO --}}
-                        <div class="tp-caption tp-shape tp-shapewrapper tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['30','30','30','30']" data-y="['top','top','top','top']" data-voffset="['30','30','30','30']" data-width="['430','430','430','420']" data-height="540" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1200;e:Power3.easeInOut;s:1200;e:Power3.easeInOut;" data-start="500" data-responsive_offset="on" style="z-index: 5;background-color:rgba(255, 255, 255, 0.8);border-color:rgba(0, 0, 0, 0);"></div>
-
-                        {{-- TITULO --}}
-                        <div class="tp-caption Woo-TitleLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['60','60','60','60']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="600" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 6; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">Premium Computer Hardware</div>
-
-                        {{-- DESCRIPCION --}}
-                        <div class="tp-caption Woo-Rating tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['225','225','225','225']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="800" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: 370px; max-width: 370px; white-space: normal; line-height: 22px;text-align:center;">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio.</div>
-
-                        {{-- PRECIO TEXTO --}}
-                        <div class="tp-caption Woo-SubTitle tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','59','59','55']" data-y="['top','top','top','top']" data-voffset="['350','350','350','350']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="900" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; min-width: 370px; max-width: 370px; white-space: normal;text-align:center;">DESDE</div>
-
-                        {{-- PRECIO NUMERO --}}
-                        <div class="tp-caption Woo-PriceLarge tp-resizeme" data-x="['left','left','left','left']" data-hoffset="['60','60','60','55']" data-y="['top','top','top','top']" data-voffset="['380','380','380','380']" data-width="370" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 10; min-width: 370px; max-width: 370px; white-space: normal; font-size: 40px; line-height: 40px;text-align:center;"><span class="amount">S/. 399.00</span></div>
-
-                        {{-- BOTON INFO --}}
-                        <a class="tp-caption Woo-AddToCart rev-btn tp-resizeme" href="#" target="_self" data-x="['left','left','left','left']" data-hoffset="['139','139','139','132']" data-y="['top','top','top','top']" data-voffset="['449','449','449','450']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:200;e:Power1.easeInOut;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(243, 168, 71, 1.00);cursor:pointer;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="x:left;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1100" data-splitin="none" data-splitout="none" data-actions='' data-responsive_offset="on" style="z-index: 12; white-space: nowrap;padding:12px 75px 12px 50px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="pe-7s-look" style="font-size:25px; float: left; margin-top: -6px; margin-right: 6px;"></i> Ver detalles</a>
-                    </li>
-                </ul>
-                <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
-            </div>
         </div>
+
     </div>
 
     <div class="main-text">
@@ -132,8 +73,8 @@
             </div>
             <div class="col-md-8 welcome-right">
                 <h4>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin established fact that a reader will be distracted Lorem Ipsum when looking at its layout.</h4>
-                <p>Lorem Ipsum was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions.
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution is that it has a more of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose</p>
+                <p>Lorem Ipsum was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions.</p>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution is that it has a more of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose</p>
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -273,80 +214,71 @@
 {!! HTML::script('libs/revolution/js/extensions/revolution.extension.video.min.js') !!}
 
 <script type="text/javascript">
-    var tpj = jQuery;
-
-    var revapi213;
+    var tpj=jQuery;
+    var revapi;
     tpj(document).ready(function() {
-        if (tpj("#rev_slider_213_1").revolution == undefined) {
-            revslider_showDoubleJqueryError("#rev_slider_213_1");
-        } else {
-            revapi213 = tpj("#rev_slider_213_1").show().revolution({
-                sliderType: "standard",
-                jsFileLocation: "/libs/revolution/js/",
-                sliderLayout: "auto",
-                dottedOverlay: "none",
-                delay: 9000,
+        if(tpj("#slider_amersur").revolution == undefined){
+            revslider_showDoubleJqueryError("#slider_amersur");
+        }else{
+            revapi = tpj("#slider_amersur").show().revolution({
+                sliderType:"standard",
+                sliderLayout:"auto",
+                dottedOverlay:"none",
+                delay:9000,
                 navigation: {
-                    keyboardNavigation: "off",
+                    keyboardNavigation:"off",
                     keyboard_direction: "horizontal",
-                    mouseScrollNavigation: "off",
-                    onHoverStop: "on",
-                    touch: {
-                        touchenabled: "on",
-                        swipe_threshold: 75,
-                        swipe_min_touches: 50,
-                        swipe_direction: "horizontal",
-                        drag_block_vertical: false
-                    },
+                    mouseScrollNavigation:"off",
+                    onHoverStop:"off",
                     arrows: {
-                        style: "gyges",
-                        enable: true,
-                        hide_onmobile: false,
-                        hide_onleave: false,
-                        tmp: '',
+                        style:"custom",
+                        enable:true,
+                        hide_onmobile:false,
+                        hide_onleave:true,
+                        hide_delay:200,
+                        hide_delay_mobile:1200,
+                        tmp:'',
                         left: {
-                            h_align: "right",
-                            v_align: "bottom",
-                            h_offset: 40,
-                            v_offset: 0
+                            h_align:"left",
+                            v_align:"center",
+                            h_offset:30,
+                            v_offset:0
                         },
                         right: {
-                            h_align: "right",
-                            v_align: "bottom",
-                            h_offset: 0,
-                            v_offset: 0
+                            h_align:"right",
+                            v_align:"center",
+                            h_offset:30,
+                            v_offset:0
                         }
                     }
                 },
-                responsiveLevels: [1240, 1024, 778, 480],
-                visibilityLevels: [1240, 1024, 778, 480],
-                gridwidth: [1200, 1024, 778, 480],
-                gridheight: [600, 600, 600, 600],
-                lazyType: "single",
+                responsiveLevels:[1240,1024,778,480],
+                visibilityLevels:[1240,1024,778,480],
+                gridwidth:[1200,1024,778,480],
+                gridheight:[600,600,500,400],
+                lazyType:"none",
                 parallax: {
-                    type: "scroll",
-                    origo: "slidercenter",
-                    speed: 400,
-                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
-                    type: "scroll",
+                    type:"mouse",
+                    origo:"slidercenter",
+                    speed:2000,
+                    levels:[2,3,4,5,6,7,12,16,10,50,47,48,49,50,51,55]
                 },
-                shadow: 0,
-                spinner: "off",
-                stopLoop: "off",
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
-                shuffle: "off",
-                autoHeight: "off",
-                disableProgressBar: "on",
-                hideThumbsOnMobile: "off",
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                debugMode: false,
+                shadow:0,
+                spinner:"spinner0",
+                stopLoop:"off",
+                stopAfterLoops:-1,
+                stopAtSlide:-1,
+                shuffle:"off",
+                autoHeight:"off",
+                hideThumbsOnMobile:"on",
+                hideSliderAtLimit:0,
+                hideCaptionAtLimit:0,
+                hideAllCaptionAtLilmit:0,
+                debugMode:false,
                 fallbacks: {
-                    simplifyAll: "off",
-                    nextSlideOnWindowFocus: "off",
-                    disableFocusListener: false,
+                    simplifyAll:"off",
+                    nextSlideOnWindowFocus:"off",
+                    disableFocusListener:false,
                 }
             });
         }
