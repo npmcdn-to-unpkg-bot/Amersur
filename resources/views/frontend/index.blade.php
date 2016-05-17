@@ -43,7 +43,7 @@
 
                     {{-- BOTON --}}
                     <div class="tp-caption rev-btn rev-hiddenicon" id="slide-18-layer-12" data-x="['right','right','center','left']" data-hoffset="['40','20','0','20']" data-y="['top','top','top','top']" data-voffset="['550','530','449','345']" data-width="['none','none','none','229']" data-height="['none','none','none','44']" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(243, 168, 71, 1.00);" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:300;s:300;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" style="z-index: 7; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 500; color: rgba(12, 12, 12, 1.00);font-family:Roboto;background-color:rgba(254, 207, 114, 0.75);padding:12px 35px 12px 35px;border-color:rgba(0, 0, 0, 1.00);border-style:solid;border-width:1px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                        Ver detalles <i class="fa-icon-eye"></i>
+                        Ver detalles <i class="fa fa-eye"></i>
                     </div>
 
                     {{-- PRECIO --}}
