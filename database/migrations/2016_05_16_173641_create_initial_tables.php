@@ -27,7 +27,7 @@ class CreateInitialTables extends Migration {
             $table->string('video');
             $table->string('tags');
 
-            $table->docuble('precio');
+            $table->double('precio');
 
             $table->boolean('publicar')->default(false);
 

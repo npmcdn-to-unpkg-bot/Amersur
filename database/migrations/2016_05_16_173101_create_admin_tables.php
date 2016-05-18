@@ -33,14 +33,6 @@ class CreateAdminTables extends Migration {
             $table->string('nombres');
             $table->string('apellidos');
 
-            $table->text('direccion');
-            $table->text('telefonos');
-
-            $table->text('intereses');
-
-            $table->integer('pais_id');
-            $table->integer('region_id');
-
             $table->integer('user_id')->unsigned();
 
             $table->timestamps();
@@ -161,6 +153,9 @@ class CreateAdminTables extends Migration {
 	 */
 	public function down()
 	{
+        Schema::drop('users');
+        Schema::drop('user_profiles');
+        Schema::drop('password_resets');
         Schema::drop('configurations');
         Schema::drop('sliders');
         Schema::drop('contacto_mensajes');
