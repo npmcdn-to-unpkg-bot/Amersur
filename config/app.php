@@ -153,6 +153,7 @@ return [
 		'Amersur\Providers\ConfigServiceProvider',
 		'Amersur\Providers\EventServiceProvider',
 		'Amersur\Providers\RouteServiceProvider',
+        'Amersur\Providers\AdminServiceProvider',
 
 	],
 
