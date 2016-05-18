@@ -1,50 +1,40 @@
-@extends('app')
+@extends('layouts.auth')
 
-@section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Reset Password</div>
-				<div class="panel-body">
-					@if (session('status'))
-						<div class="alert alert-success">
-							{{ session('status') }}
-						</div>
-					@endif
+@section('contenido_body')
+<!-- BEGIN FORGOT PASSWORD FORM -->
+{!! Form::open(['method' => 'POST', 'route' => 'auth.login.password', 'class' => 'forget-form']) !!}
 
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+	<h3>¿Se te olvidó tu contraseña?</h3>
 
-					<form class="form-horizontal" role="form" method="POST" action="/password/email">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    @if(session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
+	@if(count($errors) > 0)
+		<div class="alert alert-danger">
+			<button class="close" data-close="alert"></button>
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Send Password Reset Link
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
+	<p>Introduzca su dirección de correo electrónico para restablecer la contraseña.</p>
+	<div class="form-group">
+		<div class="input-icon">
+			<i class="fa fa-envelope"></i>
+			{!! Form::email('email', null, ['class' => 'form-control placeholder-no-fix', 'autocomplete' => 'off', 'placeholder' => 'Email']) !!}
 		</div>
 	</div>
-</div>
-@endsection
+	<div class="form-actions">
+		<a class="btn" href="{{ route('auth.login') }}"><i class="m-icon-swapleft"></i>Iniciar sesión</a>
+		<button type="submit" class="btn blue pull-right">Enviar <i class="m-icon-swapright m-icon-white"></i></button>
+	</div>
+
+{!! Form::close() !!}
+<!-- END FORGOT PASSWORD FORM -->
+@stop
