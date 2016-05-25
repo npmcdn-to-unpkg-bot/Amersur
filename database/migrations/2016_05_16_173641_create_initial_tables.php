@@ -52,6 +52,21 @@ class CreateInitialTables extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::create('agenda_contactos', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('email');
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->text('nota');
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
 	}
 
 	/**
@@ -67,6 +82,7 @@ class CreateInitialTables extends Migration {
 
         Schema::drop('posts');
         Schema::drop('post_images');
+        Schema::drop('agenda_contactos');
 	}
 
 }
