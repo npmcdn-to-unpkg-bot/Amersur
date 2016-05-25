@@ -2,7 +2,7 @@
 
 use Amersur\Repositories\BaseRepo;
 
-use Amersur\Entities\Configuration;
+use Amersur\Entities\Admin\Configuration;
 
 class ConfigurationRepo extends BaseRepo{
 

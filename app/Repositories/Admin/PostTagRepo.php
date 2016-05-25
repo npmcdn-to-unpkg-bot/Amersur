@@ -2,7 +2,7 @@
 
 use Amersur\Repositories\BaseRepo;
 
-use Amersur\Entities\PostTag;
+use Amersur\Entities\Admin\PostTag;
 
 class PostTagRepo extends BaseRepo {
 

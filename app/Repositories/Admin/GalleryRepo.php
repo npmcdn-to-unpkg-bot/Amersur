@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Amersur\Repositories\BaseRepo;
 
-use Amersur\Entities\Gallery;
+use Amersur\Entities\Admin\Gallery;
 
 class GalleryRepo extends BaseRepo {
 

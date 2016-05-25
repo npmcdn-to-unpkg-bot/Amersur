@@ -2,7 +2,7 @@
 
 use Amersur\Repositories\BaseRepo;
 
-use Amersur\Entities\GalleryPhoto;
+use Amersur\Entities\Admin\GalleryPhoto;
 
 class GalleryPhotoRepo extends BaseRepo {
 
