@@ -24,6 +24,26 @@ class UserTableSeeder extends Seeder {
                 'user_id'   => 1
             ]
         ]);
+
+        \DB::table('configurations')->insert([
+            'id' 			=> 1,
+            'titulo'		=> 'Administrador de Contenido',
+            'dominio'		=> 'http://cms.dev/',
+            'keywords'		=> 'administrador, cms',
+            'description'	=> 'Administrador de contenido en L5',
+            'email'         => 'web@dominio.com'
+        ]);
+
+        \DB::table('social_media')->insert([
+            'id'    => 1,
+            'facebook'  => '',
+            'google'    => '',
+            'pinterest' => '',
+            'skype'     => '',
+            'tumblr'    => '',
+            'twitter'   => '',
+            'youtube'   => ''
+        ]);
     }
 
 }
