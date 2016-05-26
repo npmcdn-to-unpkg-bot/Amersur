@@ -13,12 +13,19 @@
 
 Route::get('/upload/{folder}/{width}x{height}/{image}', ['as' => 'image.adaptiveResize', 'uses' => 'ImageController@adaptiveResize']);
 
-Route::get('/', function () { return view('frontend.index'); });
-Route::get('nosotros', function () { return view('frontend.nosotros'); });
-Route::get('servicios', function () { return view('frontend.servicios'); });
-Route::get('galerias', function () { return view('frontend.galeria'); });
-Route::get('testimonios', function () { return view('frontend.testimonios'); });
-Route::get('contacto', function () { return view('frontend.contacto'); });
+Route::group(['namespace' => 'Frontend'], function () {
+
+    Route::get('/', function () { return view('frontend.index'); });
+    Route::get('nosotros', function () { return view('frontend.nosotros'); });
+    Route::get('servicios', function () { return view('frontend.servicios'); });
+    Route::get('galerias', function () { return view('frontend.galeria'); });
+    Route::get('testimonios', function () { return view('frontend.testimonios'); });
+
+    //CONTACTO
+    Route::get('contacto', ['as' => 'frontend.contacto.get', 'uses' => 'FrontendController@getContacto']);
+    Route::post('contacto', ['as' => 'frontend.contacto.post', 'uses' => 'FrontendController@postContacto']);
+
+});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
