@@ -21,14 +21,37 @@
                     <p>Email : <a href="mailto:example@mail.com">mail@example.com</a></p>
                 </div>
                 <div class="col-md-8 contact-form">
-                    <h3>Contact Form</h3>
-                    <form>
-                        <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-                        <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                        <input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-                        <textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-                        <input type="submit" value="Submit" >
-                    </form>
+                    <h3>Contacto</h3>
+
+                    <div id="mensaje-enviado" style="display: none;">
+
+                        <div class="block-header" style="padding-top: 0;">
+                            <h3 class="title">Tu mensaje ha sido enviado.</h3>
+                            <div class="description">En breve nos estaremos comunicando contigo.</div>
+                        </div>
+
+                    </div>
+
+                    {!! Form::open(['route' => 'frontend.contacto.post', 'method' => 'POST', 'id' => 'contactForm']) !!}
+
+                        {!! Form::text('nombre', null, ['placeholder' => 'Nombre', 'required']) !!}
+
+                        {!! Form::email('email', null, ['placeholder' => 'Email', 'required']) !!}
+
+                        {!! Form::text('telefono', null, ['placeholder' => 'Teléfono', 'required']) !!}
+
+                        {!! Form::textarea('mensaje', null, ['placeholder' => 'Mensaje', 'required']) !!}
+
+                        <div class="g-recaptcha home" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+
+                        <a class="button style-10" href="#" id="formContactoSubmit">Enviar mensaje</a>
+
+                        <div class="progressForm col-xs-6">
+                            <i class="fa fa-2x fa-circle-o-notch fa-spin"></i>
+                        </div>
+
+                    {!! Form::close() !!}
+
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -37,4 +60,57 @@
 @stop
 
 @section('contenido_footer')
+{{-- RECAPTCHA --}}
+{!! HTML::script('https://www.google.com/recaptcha/api.js') !!}
+
+{{-- CONTACTO --}}
+<script>
+
+    $(document).on("ready", function(){
+
+        $('.progressForm .fa').hide();
+
+        $("#formContactoSubmit").on("click", function(e){
+
+            e.preventDefault();
+
+            var form = $("#contactForm");
+            var url = form.attr('action');
+            var data = form.serialize();
+
+            $('.progressForm .fa').show();
+
+            $.post(url, data, function(result){
+                $('.progressForm .fa').hide();
+                $(".contact-content").addClass('alert').addClass('alert-success').text(result.message);
+                form.slideUp();
+                $('#mensaje-enviado').slideDown();
+                form[0].reset();
+            }).fail(function(result){
+                $('.progressForm .fa').hide();
+                console.log(result);
+                $(".contact-content").text("Se produjo un error al enviar el mensaje. Intentelo de nuevo más tarde.");
+
+                if(result.status === 422){
+
+                    var errors = result.responseJSON;
+
+                    errorsHtml = '<div class="alert alert-danger"><ul>';
+                    $.each( errors, function( key, value ) {
+                        errorsHtml += '<li>' + value[0] + '</li>';
+                    });
+                    errorsHtml += '</ul></di>';
+
+                    $('.contact-content').html(errorsHtml);
+
+                };
+
+            });
+
+        });
+
+    });
+
+</script>
+
 @stop
