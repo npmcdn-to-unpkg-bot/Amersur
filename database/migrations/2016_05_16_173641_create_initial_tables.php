@@ -12,7 +12,10 @@ class CreateInitialTables extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('posts', function(Blueprint $table)
+        /*
+         * INMUEBLES
+         */
+        Schema::create('inmuebles', function(Blueprint $table)
         {
             $table->engine = 'MyISAM';
 
@@ -22,12 +25,15 @@ class CreateInitialTables extends Migration {
             $table->string('slug_url');
             $table->string('descripcion');
             $table->text('contenido');
-            $table->string('imagen');
-            $table->string('imagen_carpeta');
-            $table->string('video');
-            $table->string('tags');
 
-            $table->double('precio');
+            $table->integer('distrito_id');
+            $table->integer('tipo_id');
+
+            $table->integer('area_total');
+            $table->integer('area_construida');
+
+            $table->double('precio_alquiler');
+            $table->double('precio_venta');
 
             $table->boolean('publicar')->default(false);
 
@@ -36,13 +42,13 @@ class CreateInitialTables extends Migration {
             $table->softDeletes();
         });
 
-        \DB::statement('ALTER TABLE posts ADD FULLTEXT busqueda(titulo,descripcion)');
+        \DB::statement('ALTER TABLE inmuebles ADD FULLTEXT busqueda(titulo,descripcion)');
 
-        Schema::create('post_images', function(Blueprint $table)
+        Schema::create('inmueble_imagenes', function(Blueprint $table)
         {
             $table->increments('id');
 
-            $table->integer('post_id');
+            $table->integer('inmueble_id');
 
             $table->string('imagen');
             $table->string('imagen_carpeta');
@@ -53,6 +59,20 @@ class CreateInitialTables extends Migration {
             $table->softDeletes();
         });
 
+        Schema::create('inmueble_tipo', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('titulo');
+            $table->string('slug_url');
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        /*
+         * AGENDA DE CONTACTOS
+         */
         Schema::create('agenda_contactos', function(Blueprint $table)
         {
             $table->increments('id');
@@ -76,12 +96,13 @@ class CreateInitialTables extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('posts', function($table) {
+        Schema::table('inmuebles', function($table) {
             $table->dropIndex('busqueda');
         });
 
-        Schema::drop('posts');
-        Schema::drop('post_images');
+        Schema::drop('inmuebles');
+        Schema::drop('inmueble_imagenes');
+        Schema::drop('inmueble_tipo');
         Schema::drop('agenda_contactos');
 	}
 
