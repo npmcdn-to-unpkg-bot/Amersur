@@ -5,7 +5,7 @@
 @stop
 
 @section('contenido_admin_title')
-    Fotos de Producto
+    Imagenes
 @stop
 
 @section('contenido_admin')

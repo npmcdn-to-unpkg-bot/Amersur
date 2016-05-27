@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('contenido_admin_title')
-	Productos
+	Inmuebles
 @stop
 
 @section('contenido_admin')
@@ -28,13 +28,6 @@
                             </a>
                         </div>
 
-                        <div class="btn-group">
-                            <a href="{{ route('admin.inmuebles.listsDeletes') }}" class="btn red">
-                                Registros eliminados
-                                <i class="fa fa-trash-o"></i>
-                            </a>
-                        </div>
-
                     </div>
 
                     <div class="table-toolbar">
@@ -54,10 +47,8 @@
                         <table class="table table-striped table-bordered" id="table2">
                             <thead>
                                 <tr>
-                                    <th>Buscar</th>
-                                    <th>Categoría</th>
-                                    <th>Destacado</th>
-                                    <th>Oferta</th>
+                                    <th>Titulo</th>
+                                    <th>Tipos</th>
                                     <th>Publicado</th>
                                     <th></th>
                                 </tr>
@@ -68,15 +59,9 @@
                                         {!! Form::text('titulo', null, ['class' => 'form-control input-sm', 'placeholder' => 'Registro']) !!}
                                     </td>
                                     <td class="col-md-2">
-                                        {!! Form::select('category', ['' => 'Seleccionar'] + $category, null, ['class' => 'form-control input-sm']) !!}
+                                        {!! Form::select('tipos', ['' => 'Seleccionar'] + $category, null, ['class' => 'form-control input-sm']) !!}
                                     </td>
-                                    <td class="col-md-1">
-                                        {!! Form::select('destacado', ['' => 'Seleccionar', '0' => 'No', '1' => 'Si'], null, ['class' => 'form-control input-sm']) !!}
-                                    </td>
-                                    <td class="col-md-1">
-                                        {!! Form::select('oferta', ['' => 'Seleccionar', '0' => 'No', '1' => 'Si'], null, ['class' => 'form-control input-sm']) !!}
-                                    </td>
-                                    <td class="col-md-1">
+                                    <td class="col-md-2">
                                         {!! Form::select('publicar', ['' => 'Seleccionar', '0' => 'No', '1' => 'Si'], null, ['class' => 'form-control input-sm']) !!}
                                     </td>
                                     <td class="text-center col-md-2">
@@ -96,9 +81,7 @@
                         <thead>
                             <tr>
                                 <th>Titulo</th>
-                                <th class="text-center">Categoría</th>
-                                <th class="text-center">Destacado</th>
-                                <th class="text-center">Oferta</th>
+                                <th class="text-center">Tipo</th>
                                 <th class="text-center">Publicar</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
@@ -110,17 +93,7 @@
                             /*--}}
                             <tr data-id="{{ $item->id }}" data-title="{{ $item->titulo }}">
                                 <td>{{ $item->titulo }}</td>
-                                <td class="text-center">{{ $item->category->titulo }}</td>
-                                <td class="text-center">
-                                    <a id="destacado-{{ $item->id }}" href="#" data-method="put" class="btn-destacado">
-                                        {!! $item->destacado ? '<span class="badge badge-success badge-roundless">SI</span>' : '<span class="badge badge-default badge-roundless">NO</span>' !!}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a id="oferta-{{ $item->id }}" href="#" data-method="put" class="btn-oferta">
-                                        {!! $item->oferta ? '<span class="badge badge-success badge-roundless">SI</span>' : '<span class="badge badge-default badge-roundless">NO</span>' !!}
-                                    </a>
-                                </td>
+                                <td class="text-center">{{ $item->tipo->titulo }}</td>
                                 <td class="text-center">
                                     <a id="publicar-{{ $item->id }}" href="#" data-method="put" class="btn-publicar">
                                         {!! $item->publicar ? '<span class="badge badge-success badge-roundless">SI</span>' : '<span class="badge badge-default badge-roundless">NO</span>' !!}
@@ -136,13 +109,6 @@
                                             <li><a href="#delete" class="btn-delete">Eliminar</a></li>
                                             <li class="divider"></li>
                                             <li><a href="{{ route('admin.inmuebles.img.list', $item->id) }}">Imagenes</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="{{ route('admin.inmuebles.relation.index', $item->id) }}">Productos Relacionados</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="{{ route('admin.inmuebles.provider.index', $item->id) }}">Proveedores</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="{{ route('admin.inmuebles.price', $item->id) }}">Historial de Precio</a></li>
-                                            <li><a href="{{ route('admin.inmuebles.history', $item->id) }}">Historial de Cambios</a></li>
                                         </ul>
                                     </div>
                                 </td>
@@ -177,22 +143,6 @@
 <div class="modal-view" id="delete" title="Eliminar registro">
   <p>¿Desea eliminar el registro?</p>
   <div id="deleteTitle"></div>
-</div>
-
-{!! Form::open(['route' => ['admin.inmuebles.destacado', ':REGISTER'], 'method' => 'PUT', 'id' => 'FormDestacadoRow']) !!}
-{!! Form::close() !!}
-
-<div class="modal-view" id="destacado" title="Cambiar estado">
-    <p>¿Desea cambiar el estado de Destacado?</p>
-    <div id="destacadoTitle"></div>
-</div>
-
-{!! Form::open(['route' => ['admin.inmuebles.oferta', ':REGISTER'], 'method' => 'PUT', 'id' => 'FormOfertaRow']) !!}
-{!! Form::close() !!}
-
-<div class="modal-view" id="oferta" title="Cambiar estado">
-    <p>¿Desea cambiar el estado de Oferta?</p>
-    <div id="ofertaTitle"></div>
 </div>
 
 {!! Form::open(['route' => ['admin.inmuebles.publicar', ':REGISTER'], 'method' => 'PUT', 'id' => 'FormPublicarRow']) !!}
@@ -235,82 +185,6 @@ $(document).on("ready", function(){
                     }).fail(function(){
                         $("#mensajeAjax").show().removeClass('alert-success').addClass('alert-danger').text("Se produjo un error al eliminar el registro");
                         row.show();
-                    });
-
-                    $(this).dialog("close");
-                },
-                Cancel: function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
-    });
-
-    $(".btn-destacado").on("click", function(e){
-        e.preventDefault();
-        var row = $(this).parents("tr");
-        var id = row.data("id");
-        var title = row.data("title");
-        var form = $("#FormDestacadoRow");
-        var url = form.attr("action").replace(':REGISTER', id);
-        var data = form.serialize();
-
-        $("#destacado #destacadoTitle").text(title);
-
-        $( "#destacado" ).dialog({
-            resizable: true,
-            height: 250,
-            modal: false,
-            buttons: {
-                "Modificar estado": function() {
-
-                    $.post(url, data, function(result){
-                        if(result.estado == 1){
-                            $("#destacado-"+id+" span").removeClass('badge-default').addClass('badge-success').text('SI');
-                        }else if(result.estado == 0){
-                            $("#destacado-"+id+" span").removeClass('badge-success').addClass('badge-default').text('NO');
-                        }
-                    }).fail(function(){
-                        $("#mensajeAjax").show().removeClass('alert-success').addClass('alert-danger').text("Se produjo un error");
-                    });
-
-                    $(this).dialog("close");
-                },
-                Cancel: function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
-    });
-
-    $(".btn-oferta").on("click", function(e){
-        e.preventDefault();
-        var row = $(this).parents("tr");
-        var id = row.data("id");
-        var title = row.data("title");
-        var form = $("#FormOfertaRow");
-        var url = form.attr("action").replace(':REGISTER', id);
-        var data = form.serialize();
-
-        $("#oferta #ofertaTitle").text(title);
-
-        $( "#oferta" ).dialog({
-            resizable: true,
-            height: 250,
-            modal: false,
-            buttons: {
-                "Modificar estado": function() {
-
-                    $.post(url, data, function(result){
-                        if(result.estado == 1){
-                            $("#oferta-"+id+" span").removeClass('badge-default').addClass('badge-success').text('SI');
-                        }else if(result.estado == 0){
-                            $("#oferta-"+id+" span").removeClass('badge-success').addClass('badge-default').text('NO');
-                        }
-                    }).fail(function(){
-                        $("#mensajeAjax").show().removeClass('alert-success').addClass('alert-danger').text("Se produjo un error");
                     });
 
                     $(this).dialog("close");

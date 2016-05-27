@@ -38,7 +38,7 @@
                     </div>
 
                     <a href="{{ route('admin.inmuebles.img.list', $posts->id) }}" class="btn btn-primary">Ver fotos</a>
-                    <a href="{{ route('admin.inmuebles.index') }}" class="btn btn-primary">Ir a lista de productos</a>
+                    <a href="{{ route('admin.inmuebles.index') }}" class="btn btn-primary">Ir a lista de registros</a>
 
                 </div>
 

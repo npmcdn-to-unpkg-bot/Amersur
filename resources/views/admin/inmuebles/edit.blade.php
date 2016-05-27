@@ -12,7 +12,7 @@
 @stop
 
 @section('contenido_admin_title')
-    Productos - Editar
+    Inmuebles - Editar
 @stop
 
 @section('contenido_admin')
@@ -75,76 +75,12 @@
                         </div>
                     </div>
 
-                    <div class="portlet box blue-hoki">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-globe"></i>Atributos
-                            </div>
-                        </div>
-
-                        <div class="portlet-body form">
-
-                            <div class="form-horizontal">
-
-                                <div class="form-body">
-
-                                    <div class="form-group">
-                                        {!! Form::label('precio', 'Precio', ['class' => 'col-md-2 control-label']) !!}
-                                        <div class="col-md-5">
-                                            {!! Form::select('moneda', ['' => 'Seleccionar'] + $money, $post->money_id, ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-md-5">
-                                            {!! Form::text('precio', null, ['id' => 'precio', 'class' => 'form-control', 'placeholder' => 'Precio de producto']) !!}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        {!! Form::label('categoria', 'Categoría', ['class' => 'col-md-2 control-label']) !!}
-                                        <div class="col-md-10">
-                                            {!! Form::select('categoria', ['' => 'Seleccionar'] + $category, $post->category_id, ['class' => 'form-control']) !!}
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="portlet box blue-hoki">
-                        <div class="portlet-title"><div class="caption">Características</div></div>
-
-                        <div class="portlet-body form">
-
-                            <div class="form-horizontal">
-
-                                <div class="form-body">
-
-                                    <div class="form-group">
-                                        {!! Form::label('peso_gr', 'Peso GR', ['class' => 'col-md-2 control-label']) !!}
-                                        <div class="col-md-5">
-                                            {!! Form::text('peso_gr', null, ['class' => 'form-control', 'placeholder' => 'Peso GR']) !!}
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
 
                 <div class="col-md-6">
 
                     <div class="portlet box blue-hoki">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-globe"></i>Opciones
-                            </div>
-                        </div>
+                        <div class="portlet-title"><div class="caption">Atributos</div></div>
 
                         <div class="portlet-body form">
 
@@ -153,33 +89,62 @@
                                 <div class="form-body">
 
                                     <div class="form-group">
-                                        {!! Form::label('opciones', 'Opciones', ['class' => 'col-md-2 control-label']) !!}
+                                        {!! Form::label('tipo', 'Tipo', ['class' => 'col-md-2 control-label']) !!}
                                         <div class="col-md-10">
-                                            <div class="radio-list">
-                                                <label class="radio-inline">
-                                                    {!! Form::radio('opciones', '0', $post->normal, ['id' => 'normal']) !!}
-                                                    Normal
-                                                </label>
-                                                <label class="radio-inline">
-                                                    {!! Form::radio('opciones', '1', $post->destacado, ['id' => 'destacado']) !!}
-                                                    Destacado
-                                                </label>
-                                                <label class="radio-inline">
-                                                    {!! Form::radio('opciones', '2', $post->oferta, ['id' => 'oferta']) !!}
-                                                    Oferta
-                                                </label>
-                                            </div>
+                                            {!! Form::select('tipo', ['' => 'Seleccionar'] + $category, $post->inmueble_tipo_id, ['class' => 'form-control select2']) !!}
                                         </div>
-                                        @if($post->oferta == 1)
-                                            <div class="col-md-5" id="oferta_precio">
-                                                {!! Form::text('oferta_precio', null, ['class' => 'form-control', 'placeholder' => 'Precio de oferta']) !!}
-                                            </div>
-                                        @else
-                                            <div class="col-md-5" id="oferta_precio">
-                                                {!! Form::text('oferta_precio', null, ['class' => 'form-control', 'placeholder' => 'Precio de oferta']) !!}
-                                            </div>
-                                        @endif
                                     </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('distrito', 'Distrito', ['class' => 'col-md-2 control-label']) !!}
+                                        <div class="col-md-10">
+                                            {!! Form::select('distrito', ['' => 'Seleccionar'] + $distrito, $post->distrito_id, ['class' => 'form-control select2']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('area_total', 'Área Total', ['class' => 'col-md-4 control-label text-left']) !!}
+                                        <div class="col-md-8">
+                                            {!! Form::text('area_total', null, ['class' => 'form-control', 'placeholder' => 'Área Total']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('area_construida', 'Área Construida', ['class' => 'col-md-4 control-label text-left']) !!}
+                                        <div class="col-md-8">
+                                            {!! Form::text('area_construida', null, ['class' => 'form-control', 'placeholder' => 'Área Construida']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('precio_alquiler', 'Precio Alquiler', ['class' => 'col-md-4 control-label text-left']) !!}
+                                        <div class="col-md-8">
+                                            {!! Form::text('precio_alquiler', null, ['class' => 'form-control', 'placeholder' => 'Precio Alquiler']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('precio_venta', 'Precio Venta', ['class' => 'col-md-4 control-label text-left']) !!}
+                                        <div class="col-md-8">
+                                            {!! Form::text('precio_venta', null, ['class' => 'form-control', 'placeholder' => 'Precio Venta']) !!}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="portlet box blue-hoki">
+                        <div class="portlet-title"><div class="caption">Opciones</div></div>
+
+                        <div class="portlet-body form">
+
+                            <div class="form-horizontal">
+
+                                <div class="form-body">
 
                                     <div class="form-group">
                                         {!! Form::label('publicar', 'Publicar', ['class' => 'col-md-2 control-label']) !!}
@@ -200,7 +165,7 @@
                                     <div class="form-group">
                                         {!! Form::label('published_at', 'Fecha de publicación', ['class' => 'col-md-4 control-label']) !!}
                                         <div class="col-md-8">
-                                            {!! Form::text('published_at', null, ['class' => 'form-control datetimepicker']) !!}
+                                            {!! Form::text('published_at', date('Y-m-d H:i:s'), ['class' => 'form-control datetimepicker']) !!}
                                         </div>
                                     </div>
 
@@ -208,122 +173,6 @@
 
                             </div>
 
-                        </div>
-
-                    </div>
-
-                    <div class="portlet box blue-hoki">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-globe"></i>Gastos Operativos
-                            </div>
-                        </div>
-
-                        <div class="portlet-body form">
-
-                            <div class="form-horizontal">
-
-                                <div class="form-body">
-
-                                    <div class="form-group">
-                                        {!! Form::label('logistica_origen', 'Logística Origen', ['class' => 'col-md-4 control-label']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::select('logistica_origen', ['' => 'Seleccionar'] + $services, $post->logistica_origen, ['class' => 'form-control select2']) !!}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        {!! Form::label('logistica_destino', 'Logística Destino', ['class' => 'col-md-4 control-label']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::select('logistica_destino', ['' => 'Seleccionar'] + $services, $post->logistica_destino, ['class' => 'form-control select2']) !!}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        {!! Form::label('transporte_origen', 'Transporte Origen', ['class' => 'col-md-4 control-label']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::select('transporte_origen', ['' => 'Seleccionar'] + $services, $post->transporte_origen, ['class' => 'form-control select2']) !!}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        {!! Form::label('transporte_destino', 'Transporte Destino', ['class' => 'col-md-4 control-label']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::select('transporte_destino', ['' => 'Seleccionar'] + $services, $post->transporte_destino, ['class' => 'form-control select2']) !!}
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="portlet box blue-hoki">
-                        <div class="portlet-title"><div class="caption">Gastos de Envío</div></div>
-
-                        <div class="portlet-body form">
-
-                            <div class="form-horizontal">
-
-                                <div class="form-body">
-
-                                    <div class="form-group">
-                                        {!! Form::label('gastos_envio', 'Proveedor', ['class' => 'col-md-4 control-label']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::select('gastos_envio', ['' => 'Seleccionar'] + $services, $post->gastos_envio, ['class' => 'form-control select2']) !!}
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="portlet box blue-hoki">
-                        <div class="portlet-title"><div class="caption">Vista previa de Costos</div></div>
-
-                        <div class="portlet-body form">
-
-                            <div class="form-horizontal">
-
-                                <div class="form-body">
-
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <a id="calcular_costos" href="javascipt:;" class="btn btn-primary btn-block">Calcular costos</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            {{--*/
-                                            $precio_costo = $post->precioCosto($post->money_id, $post->precio);
-                                            $utilidades = $post->utilidades($precio_costo);
-                                            $gastos_operativos = $post->gastosOperativos($post->peso_gr, $post->logistica_origen, $post->logistica_destino, $post->transporte_origen, $post->transporte_destino);
-                                            $costos_envio = $post->costosEnvio($post->peso_gr, $post->gastos_envio);
-                                            $impuesto = $post->impuesto($gastos_operativos, $precio_costo, $utilidades, $costos_envio);
-                                            $precio_venta = $post->precioVenta($precio_costo, $utilidades, $gastos_operativos, $costos_envio, $impuesto);
-                                            $precio_oferta = $post->precioOferta($post->oferta, $post->oferta_precio, $precio_venta);
-                                            /*--}}
-                                            <ul>
-                                                <li><h4>Precio Costo: <strong>S/. <span id="calculo_precio_costo">{{ $precio_costo }}</span></strong></h4></li>
-                                                <li><h4>Utilidad: <strong>S/. <span id="calculo_utilidad">{{ $utilidades }}</span></strong></h4></li>
-                                                <li><h4>Gastos Operativos: <strong>S/. <span id="calculo_gastos_operativos">{{ $gastos_operativos }}</span></strong></h4></li>
-                                                <li><h4>Costo de Envío: <strong>S/. <span id="calculo_gastos_envio">{{ $costos_envio }}</span></strong></h4></li>
-                                                <li><h4>Impuesto: <strong>S/. <span id="calculo_impuesto">{{ $impuesto }}</span></strong></h4></li>
-                                                <li><h4>Precio Venta: <strong>S/. <span id="calculo_precio_venta">{{ $precio_venta }}</span></strong></h4></li>
-                                                <li><h4>Precio Oferta: <strong>S/. <span id="calculo_precio_oferta">{{ $precio_oferta }}</span></strong></h4></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
                         </div>
 
                     </div>
@@ -366,55 +215,7 @@
 {!! HTML::script('assets/global/plugins/fancybox/jquery.fancybox.js') !!}
 {!! HTML::script('assets/admin/pages/scripts/fancybox.js') !!}
 
-{{-- SELECT DE OFERTA --}}
-<script>
-    $(document).on("ready", function(){
-        @if($post->oferta == 0)
-        $("#oferta_precio").hide();
-        @endif
-
-        $("#oferta").on("change", function(){
-            $("#oferta_precio").show();
-        });
-
-        $("#normal, #destacado").on("change", function(){
-            $("#oferta_precio").hide();
-        });
-
-    });
-</script>
-
 {{-- SELECT 2 --}}
 {!! HTML::script('assets/global/plugins/select2/js/select2.full.min.js') !!}
 {!! HTML::script('assets/pages/scripts/components-select2.js') !!}
-
-{{-- CALCULAR COSTOS --}}
-<script>
-
-    $(document).on("ready", function(){
-
-        $("#calcular_costos").on("click", function(e){
-
-            e.preventDefault();
-
-            var form = $("#formRegister");
-            var url = '{{ route('admin.inmuebles.calcular.costo') }}';
-            var data = form.serialize();
-
-            $.post(url, data, function(result){
-                $("#calculo_precio_costo").text(result.precio_costo);
-                $("#calculo_utilidad").text(result.utilidad);
-                $("#calculo_gastos_operativos").text(result.gastos_operativos);
-                $("#calculo_gastos_envio").text(result.gastos_envio);
-                $("#calculo_impuesto").text(result.impuesto);
-                $("#calculo_precio_venta").text(result.precio_venta);
-                $("#calculo_precio_oferta").text(result.precio_oferta);
-            }).fail(function(result){
-                console.log(result);
-            });
-        });
-
-    });
-
-</script>
 @stop

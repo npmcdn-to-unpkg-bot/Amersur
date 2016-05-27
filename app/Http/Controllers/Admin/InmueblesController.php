@@ -6,15 +6,15 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Amersur\Http\Controllers\Controller;
 
-use Amersur\Repositories\Amersur\CategoryRepo;
+use Amersur\Repositories\Admin\DistritoRepo;
 
-use Amersur\Entities\Amersur\Product;
-use Amersur\Repositories\Amersur\ProductRepo;
+use Amersur\Repositories\Amersur\InmuebleTipoRepo;
 
-use Amersur\Entities\Amersur\ProductImage;
-use Amersur\Repositories\Amersur\ProductImageRepo;
+use Amersur\Entities\Amersur\Inmueble;
+use Amersur\Repositories\Amersur\InmuebleRepo;
 
-use Amersur\Repositories\Amersur\ServicioRepo;
+use Amersur\Entities\Amersur\InmuebleImagen;
+use Amersur\Repositories\Amersur\InmuebleImagenRepo;
 
 use Amersur\Entities\Admin\History;
 use Amersur\Repositories\Admin\HistoryRepo;
@@ -25,39 +25,31 @@ class InmueblesController extends Controller {
         'titulo' => 'required',
         'descripcion' => 'required|min:10|max:255',
         'contenido' => 'required',
-        'moneda' => 'required',
-        'precio' => 'required',
-        'categoria' => 'required',
-        'published_at' => 'required',
+        'tipo' => 'required|exists:inmueble_tipos,id',
+        'distrito' => 'required|exists:distritos,id',
+        'area_total' => 'numeric',
+        'area_construida' => 'numeric',
+        'precio_alquiler' => 'numeric',
+        'precio_venta' => 'numeric',
         'publicar' => 'required|in:1,0',
-        'opciones' => 'required|in:0,1,2',
-        'logistica_origen' => 'required',
-        'logistica_destino' => 'required',
-        'transporte_origen' => 'required',
-        'transporte_destino' => 'required',
-        'gastos_envio' => 'required'
+        'published_at' => 'required'
 	];
 
-	protected $categoryRepo;
-	protected $productRepo;
-    protected $productImageRepo;
-    protected $productPriceRepo;
-    protected $servicioRepo;
-	protected $historyRepo;
+    protected $distritoRepo;
+	protected $inmuebleTipoRepo;
+	protected $inmuebleRepo;
+    protected $inmuebleImagenRepo;
 
-	protected $tabla = 'products';
-
-    public function __construct(CategoryRepo $categoryRepo,
-								ProductRepo $productRepo,
-                                ProductImageRepo $productImageRepo,
-                                ServicioRepo $servicioRepo,
+    public function __construct(DistritoRepo $distritoRepo,
+                                InmuebleRepo $inmuebleRepo,
+                                InmuebleTipoRepo $inmuebleTipoRepo,
+                                InmuebleImagenRepo $inmuebleImagenRepo,
 								HistoryRepo $historyRepo)
 	{
-		$this->categoryRepo = $categoryRepo;
-		$this->productRepo = $productRepo;
-        $this->productImageRepo = $productImageRepo;
-        $this->servicioRepo = $servicioRepo;
-        $this->historyRepo = $historyRepo;
+        $this->distritoRepo = $distritoRepo;
+        $this->inmuebleRepo = $inmuebleRepo;
+        $this->inmuebleTipoRepo = $inmuebleTipoRepo;
+        $this->inmuebleImagenRepo = $inmuebleImagenRepo;
     }
 
 	/**
@@ -67,8 +59,8 @@ class InmueblesController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-		$posts = $this->productRepo->findAndPaginate($request);
-		$category = $this->categoryRepo->all()->lists('titulo', 'id');
+		$posts = $this->inmuebleRepo->findAndPaginate($request);
+		$category = $this->inmuebleTipoRepo->all()->lists('titulo', 'id');
 				
 		return view('admin.inmuebles.list', compact('posts','category'));
 	}
@@ -80,12 +72,11 @@ class InmueblesController extends Controller {
 	 */
 	public function create()
 	{
-		$category = $this->categoryRepo->all()->lists('titulo', 'id');
-		$money = $this->moneyRepo->all()->lists('titulo', 'id');
-        $services = $this->servicioRepo->all()->lists('titulo', 'id');
+		$category = $this->inmuebleTipoRepo->all()->lists('titulo', 'id');
+        $distrito = $this->distritoRepo->all()->lists('titulo', 'id');
 		$selected = [];
 
-		return view('admin.inmuebles.create', compact('category','money','services','selected'));
+		return view('admin.inmuebles.create', compact('category','distrito','selected'));
 	}
 
 	/**
@@ -99,28 +90,22 @@ class InmueblesController extends Controller {
 
 		//VARIABLES
 		$titulo = $request->input('titulo');
-		$slug_url = $this->productRepo->SlugUrl($titulo);
-		$categoria = $request->input('categoria');
-		$moneda = $request->input('moneda');
-		$history = json_encode($request->except('_method','_token'));
+		$slug_url = $this->inmuebleRepo->SlugUrl($titulo);
+		$tipo = $request->input('tipo');
+        $distrito = $request->input('distrito');
 
 		//GUARDAR DATOS
-		$post = new Product($request->all());
+		$post = new Inmueble($request->all());
 		$post->slug_url = $slug_url;
-		$post->category_id = $categoria;
-		$post->money_id = $moneda;
-		$post->user_id = Auth::user()->profile->id;
-		$post->history = $history;
-		$this->productRepo->create($post, $request->all());
+		$post->inmueble_tipo_id = $tipo;
+        $post->distrito_id = $distrito;
+		$rowSave = $this->inmuebleRepo->create($post, $request->all());
 
-        //BUSCAR REGISTRO POR TITULO
-        $postCreate = $this->productRepo->where('titulo', $titulo)->first();
-
-		//MENSAJE
+        //MENSAJE
 		flash()->success('El registro se agregó satisfactoriamente.');
 
 		//REDIRECCIONAR A PAGINA PARA VER DATOS
-		return redirect()->route('admin.inmuebles.img.create', $postCreate->id);
+		return redirect()->route('admin.inmuebles.img.create', $rowSave->id);
 	}
 
 	/**
@@ -142,12 +127,11 @@ class InmueblesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$post = $this->productRepo->findOrFail($id);
-		$category = $this->categoryRepo->all()->lists('titulo', 'id');
-		$money = $this->moneyRepo->all()->lists('titulo', 'id');
-        $services = $this->servicioRepo->all()->lists('titulo', 'id');
+		$post = $this->inmuebleRepo->findOrFail($id);
+        $category = $this->inmuebleTipoRepo->all()->lists('titulo', 'id');
+        $distrito = $this->distritoRepo->all()->lists('titulo', 'id');
 
-		return view('admin.inmuebles.edit', compact('post','category','money','services'));
+		return view('admin.inmuebles.edit', compact('post','category','distrito'));
 	}
 
 	/**
@@ -159,55 +143,22 @@ class InmueblesController extends Controller {
 	public function update($id, Request $request)
 	{
 		//BUSCAR ID
-		$post = $this->productRepo->findOrFail($id);
+		$post = $this->inmuebleRepo->findOrFail($id);
 
 		//VALIDACION DE DATOS
 		$this->validate($request, $this->rules);
 
 		//VARIABLES
-		$titulo = $request->input('titulo');
-		$slug_url = $this->productRepo->SlugUrl($titulo);
-		$categoria = $request->input('categoria');
-		$moneda = $request->input('moneda');
-        $precio = $request->input('precio');
-
-        //COMPARAR PRECIO
-        if($precio <> $post->precio)
-        {
-            $price = new ProductPrice();
-            $price->product_id = $id;
-            $price->money_id = $moneda;
-            $price->precio_unidad = $precio;
-            $price->user_id = Auth::user()->id;
-            $this->productPriceRepo->create($price, $request->all());
-        }
-
-        //OPCIONES
-        $opciones = $request->input('opciones');
-        if($opciones == 0){
-            $normal = 1; $destacado = 0; $oferta = 0;
-            $oferta_descuento = 0;
-        }elseif($opciones == 1){
-            $normal = 0; $destacado = 1; $oferta = 0;
-            $oferta_descuento = 0;
-        }elseif($opciones == 2){
-            $normal = 0; $destacado = 0; $oferta = 1;
-            $oferta_descuento = $request->input('oferta_precio');
-        }
+        $titulo = $request->input('titulo');
+        $slug_url = $this->inmuebleRepo->SlugUrl($titulo);
+        $tipo = $request->input('tipo');
+        $distrito = $request->input('distrito');
 
 		//GUARDAR DATOS
-		$post->slug_url = $slug_url;
-		$post->category_id = $categoria;
-		$post->money_id = $moneda;
-        $post->normal = $normal;
-        $post->destacado = $destacado;
-        $post->oferta = $oferta;
-        $post->oferta_precio = $oferta_descuento;
-		$this->productRepo->update($post, $request->except('imagen'));
-
-		//GUARDAR HISTORIAL
-		$history = new History;
-		$this->historyRepo->saveHistory($history, $this->tabla, $id, $request, 'update');
+        $post->slug_url = $slug_url;
+        $post->inmueble_tipo_id = $tipo;
+        $post->distrito_id = $distrito;
+		$this->inmuebleRepo->update($post, $request->all());
 
 		//MENSAJE
 		flash()->success('El registro se actualizó satisfactoriamente.');
@@ -225,12 +176,8 @@ class InmueblesController extends Controller {
 	 */
 	public function destroy($id, Request $request)
 	{
-		//GUARDAR HISTORIAL
-		$history = new History;
-		$this->historyRepo->saveHistory($history, $this->tabla, $id, $request, 'delete');
-
 		//BUSCAR ID PARA ELIMINAR
-		$post = $this->productRepo->findOrFail($id);
+		$post = $this->inmuebleRepo->findOrFail($id);
 		$post->delete();
 
 		$message = 'El registro se eliminó satisfactoriamente.';
@@ -252,7 +199,7 @@ class InmueblesController extends Controller {
     public function publicar($id, Request $request)
     {
         //BUSCAR ID PARA ELIMINAR
-        $post = $this->productRepo->findOrFail($id);
+        $post = $this->inmuebleRepo->findOrFail($id);
 
         if($post->publicar == 0){
             $publicar = 1;
@@ -261,7 +208,7 @@ class InmueblesController extends Controller {
         }
 
         $post->publicar = $publicar;
-        $this->productRepo->update($post, $request->all());
+        $this->inmuebleRepo->update($post, $request->all());
 
         $message = 'El registro se modificó satisfactoriamente.';
 
@@ -282,7 +229,7 @@ class InmueblesController extends Controller {
 	 */
 	public function history($id)
 	{
-		$post = $this->productRepo->findOrFail($id);
+		$post = $this->inmuebleRepo->findOrFail($id);
 		$posts = $this->historyRepo->findHistory($this->tabla, $id);
 
 		return view('admin.inmuebles.history', compact('post','posts'));
@@ -294,8 +241,8 @@ class InmueblesController extends Controller {
 	 */
 	public function listsDeletes(Request $request)
 	{
-		$posts = $this->productRepo->findAndPaginateDeletes($request);
-		$category = $this->categoryRepo->all()->lists('titulo', 'id');
+		$posts = $this->inmuebleRepo->findAndPaginateDeletes($request);
+		$category = $this->inmuebleTipoRepo->all()->lists('titulo', 'id');
 
 		return view('admin.inmuebles.list-deletes', compact('posts', 'category'));
 	}
@@ -306,7 +253,7 @@ class InmueblesController extends Controller {
 	 */
 	public function destroyTotal($id, Request $request)
 	{
-		$post = $this->productRepo->findTrash($id);
+		$post = $this->inmuebleRepo->findTrash($id);
 		$post->forceDelete();
 
 		$message = 'El registro se eliminó satisfactoriamente.';
@@ -327,7 +274,7 @@ class InmueblesController extends Controller {
      */
     public function productsAll(Request $request)
     {
-        $products = $this->productRepo->buscarJson($request);
+        $products = $this->inmuebleRepo->buscarJson($request);
 
         return response()->json($products);
     }
@@ -341,8 +288,8 @@ class InmueblesController extends Controller {
      */
     public function photosList($post)
     {
-        $posts = $this->productRepo->findOrFail($post);
-        $photos = $this->productImageRepo->where('product_id', $post)->orderBy('orden','asc')->get();
+        $posts = $this->inmuebleRepo->findOrFail($post);
+        $photos = $this->inmuebleImagenRepo->where('inmueble_id', $post)->orderBy('orden','asc')->get();
 
         return view('admin.inmueble-imagenes.list', compact('posts', 'photos'));
     }
@@ -354,7 +301,7 @@ class InmueblesController extends Controller {
             $sortedval = $_POST['listPhoto'];
             try{
                 foreach ($sortedval as $key => $sort){
-                    $sortPhoto = ProductImage::find($sort);
+                    $sortPhoto = InmuebleImagen::find($sort);
                     $sortPhoto->orden = $key;
                     $sortPhoto->save();
                 }
@@ -368,7 +315,7 @@ class InmueblesController extends Controller {
 
     public function photosCreate($post)
     {
-        $posts = $this->productRepo->findOrFail($post);
+        $posts = $this->inmuebleRepo->findOrFail($post);
 
         return view('admin.inmueble-imagenes.upload', compact('posts'));
     }
@@ -376,23 +323,23 @@ class InmueblesController extends Controller {
     public function photosStore($post, Request $request)
     {
         //CREAR CARPETA CON FECHA Y MOVER IMAGEN
-        $this->productRepo->CrearCarpeta();
-        $ruta = "upload/".$this->productRepo->FechaCarpeta();
+        $this->inmuebleRepo->CrearCarpeta();
+        $ruta = "upload/".$this->inmuebleRepo->FechaCarpeta();
         $archivo = $request->file('file');
-        $imagen = $this->productRepo->FileMove($archivo, $ruta);
-        $imagen_carpeta = $this->productRepo->FechaCarpeta();
+        $imagen = $this->inmuebleRepo->FileMove($archivo, $ruta);
+        $imagen_carpeta = $this->inmuebleRepo->FechaCarpeta();
 
         //GUARDAR DATOS
-        $photo = new ProductImage();
+        $photo = new InmuebleImagen();
         $photo->imagen = $imagen;
         $photo->imagen_carpeta = $imagen_carpeta;
-        $photo->product_id = $post;
+        $photo->inmueble_id = $post;
         $photo->save();
     }
 
     public function photosDelete($post, $id, Request $request)
     {
-        $photo = $this->productImageRepo->findOrFail($id);
+        $photo = $this->inmuebleImagenRepo->findOrFail($id);
         $photo->delete();
 
         $message = 'El registro se eliminó satisfactoriamente.';

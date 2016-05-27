@@ -166,6 +166,31 @@
 					</a>
 				</li>
 
+                <li {!! (Request::is('admin/inmueble*') ? 'class="active open"' : '') !!}>
+                    <a href="javascript:;">
+                        <i class="icon-grid"></i>
+                        <span class="title">Inmuebles</span>
+                        {!! (Request::is('admin/inmueble*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
+                    </a>
+                    <ul class="sub-menu">
+                        <li {!! (Request::is('admin/inmuebles') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.inmuebles.index') }}">
+                                <i class="icon-list"></i>
+                                Lista</a>
+                        </li>
+                        <li {!! (Request::is('admin/inmuebles/create') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.inmuebles.create') }}">
+                                <i class="icon-note"></i>
+                                Nuevo registro</a>
+                        </li>
+                        <li {!! (Request::is('admin/inmueble-tipos*') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.inmueble-tipos.index') }}">
+                                <i class="icon-layers"></i>
+                                Tipos</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li {!! (Request::is('admin/servicios*') ? 'class="active open"' : '') !!}>
                     <a href="{{ route('admin.servicios.index') }}">
                         <i class="icon-energy"></i>
@@ -200,11 +225,6 @@
 							<i class="icon-speech"></i>
 							Mensajes</a>
 						</li>
-                        <li {!! (Request::is('admin/contacto/sugerencias*') ? 'class="active"' : '') !!}>
-                            <a href="{{ route('admin.contacto.sugerencias.index') }}">
-                            <i class="icon-bubbles"></i>
-                            Sugerencias</a>
-                        </li>
 					</ul>
 				</li>
 
