@@ -144,6 +144,19 @@ class CreateAdminTables extends Migration {
 
             $table->timestamps();
         });
+
+        /*
+         * DISTRITOS
+         */
+        Schema::create('distritos', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('titulo');
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
 	}
 
 	/**
@@ -162,6 +175,7 @@ class CreateAdminTables extends Migration {
         Schema::drop('social_media');
         Schema::drop('pages');
         Schema::drop('histories');
+        Schema::drop('distritos');
 	}
 
 }
