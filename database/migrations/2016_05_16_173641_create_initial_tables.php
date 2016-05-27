@@ -27,7 +27,7 @@ class CreateInitialTables extends Migration {
             $table->text('contenido');
 
             $table->integer('distrito_id');
-            $table->integer('tipo_id');
+            $table->integer('inmueble_tipo_id');
 
             $table->integer('area_total');
             $table->integer('area_construida');
@@ -59,7 +59,7 @@ class CreateInitialTables extends Migration {
             $table->softDeletes();
         });
 
-        Schema::create('inmueble_tipo', function(Blueprint $table)
+        Schema::create('inmueble_tipos', function(Blueprint $table)
         {
             $table->increments('id');
 
@@ -102,7 +102,7 @@ class CreateInitialTables extends Migration {
 
         Schema::drop('inmuebles');
         Schema::drop('inmueble_imagenes');
-        Schema::drop('inmueble_tipo');
+        Schema::drop('inmueble_tipos');
         Schema::drop('agenda_contactos');
 	}
 
