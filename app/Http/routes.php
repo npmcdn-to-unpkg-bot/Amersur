@@ -82,36 +82,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('slider', 'SlidersController', ['only' => ['edit','update']]);
 
     //PRODUCTOS
-    Route::resource('productos', 'ProductosController');
-    Route::put('productos-destacado/{id}', ['as' => 'admin.productos.destacado', 'uses' => 'ProductosController@destacado']);
-    Route::put('productos-oferta/{id}', ['as' => 'admin.productos.oferta', 'uses' => 'ProductosController@oferta']);
-    Route::put('productos-publicar/{id}', ['as' => 'admin.productos.publicar', 'uses' => 'ProductosController@publicar']);
-    Route::get('productos-price/{id}', ['as' => 'admin.productos.price', 'uses' => 'ProductosController@price']);
-    Route::get('productos-history/{id}', ['as' => 'admin.productos.history', 'uses' => 'ProductosController@history']);
-    Route::get('productos-deletes', ['as' => 'admin.productos.listsDeletes', 'uses' => 'ProductosController@listsDeletes']);
-    Route::delete('productos-deletes/destroy/{id}', ['as' => 'admin.productos.listsDeletes.destroy', 'uses' => 'ProductosController@destroyTotal']);
-    Route::post('productos-deletes/restore/{id}', ['as' => 'admin.productos.listsDeletes.restore', 'uses' => 'ProductosController@restore']);
-    Route::match(['post', 'put'], 'productos-calcular-costo', ['as' => 'admin.productos.calcular.costo', 'uses' => 'ProductosController@calcularCosto']);
+    Route::resource('inmuebles', 'InmueblesController');
+    Route::put('inmuebles-publicar/{id}', ['as' => 'admin.inmuebles.publicar', 'uses' => 'InmueblesController@publicar']);
 
-    Route::group(['prefix' => 'productos/images'], function(){
-        Route::get('{producto}', ['as' => 'admin.productos.img.list', 'uses' => 'ProductosController@photosList' ]);
-        Route::post('{producto}/order', ['as' => 'admin.productos.img.order', 'uses' => 'ProductosController@photosOrder' ]);
-        Route::get('{producto}/upload', ['as' => 'admin.productos.img.create', 'uses' => 'ProductosController@photosCreate' ]);
-        Route::post('{producto}/upload', ['as' => 'admin.productos.img.store', 'uses' => 'ProductosController@photosStore' ]);
-        Route::delete('{producto}/delete/{id}', ['as' => 'admin.productos.img.delete', 'uses' => 'ProductosController@photosDelete' ]);
+    Route::group(['prefix' => 'inmuebles/images'], function(){
+        Route::get('{inmueble}', ['as' => 'admin.inmuebles.img.list', 'uses' => 'InmueblesController@photosList' ]);
+        Route::post('{inmueble}/order', ['as' => 'admin.inmuebles.img.order', 'uses' => 'InmueblesController@photosOrder' ]);
+        Route::get('{inmueble}/upload', ['as' => 'admin.inmuebles.img.create', 'uses' => 'InmueblesController@photosCreate' ]);
+        Route::post('{inmueble}/upload', ['as' => 'admin.inmuebles.img.store', 'uses' => 'InmueblesController@photosStore' ]);
+        Route::delete('{inmueble}/delete/{id}', ['as' => 'admin.inmuebles.img.delete', 'uses' => 'InmueblesController@photosDelete' ]);
     });
 
     //PRODUCTOS - CATEGORIAS
-    Route::resource('productos-category', 'ProductosCategoriesController');
-
-    //PAGINAS
-    Route::resource('pages', 'PagesController');
-
-    //CATEGORIAS
-    Route::resource('category', 'CategoriesController');
-
-    //TAGS
-    Route::resource('tag', 'TagsController');
+    Route::resource('inmueble-tipos', 'InmuebleTiposController');
 
     //GALERIA
     Route::group(['prefix' => 'gallery'], function(){
@@ -138,6 +121,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     //CONTACTO - MENSAJES
     Route::resource('contacto/mensajes', 'ContactoMensajesController', ['only' => ['index','show']]);
-    Route::resource('contacto/sugerencias', 'ContactoSugerenciasController', ['only' => ['index','show']]);
 
 });
