@@ -9,12 +9,6 @@ use Amersur\Http\Controllers\Controller;
 use Amersur\Entities\Admin\History;
 use Amersur\Repositories\Admin\HistoryRepo;
 
-use Amersur\Repositories\Amersur\MoneyRepo;
-
-use Amersur\Repositories\Amersur\PaisRepo;
-
-use Amersur\Repositories\Amersur\ProviderRepo;
-
 use Amersur\Entities\Amersur\Servicio;
 use Amersur\Repositories\Amersur\ServicioRepo;
 
@@ -36,23 +30,14 @@ class ServiciosController extends Controller {
 	];
 
     protected $historyRepo;
-    protected $moneyRepo;
-    protected $paisRepo;
-    protected $providerRepo;
     protected $servicioRepo;
 
 	protected $tabla = 'servicios';
 
     public function __construct(HistoryRepo $historyRepo,
-                                MoneyRepo $moneyRepo,
-                                PaisRepo $paisRepo,
-                                ProviderRepo $providerRepo,
                                 ServicioRepo $servicioRepo)
 	{
         $this->historyRepo = $historyRepo;
-        $this->moneyRepo = $moneyRepo;
-        $this->paisRepo = $paisRepo;
-        $this->providerRepo = $providerRepo;
         $this->servicioRepo = $servicioRepo;
     }
 
