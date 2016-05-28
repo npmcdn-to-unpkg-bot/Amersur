@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Amersur\Http\Controllers\Controller;
 
+use Amersur\Repositories\Amersur\InmuebleRepo;
+use Amersur\Repositories\Amersur\InmuebleTipoRepo;
+
 use Amersur\Entities\Admin\Configuration;
 use Amersur\Entities\Admin\ContactoMensaje;
 
@@ -12,10 +15,37 @@ class FrontendController extends Controller {
 
     use CapchaTrait;
 
+    protected $inmuebleRepo;
+    protected $inmuebleTipoRepo;
+
+    public function __construct(InmuebleRepo $inmuebleRepo,
+                                InmuebleTipoRepo $inmuebleTipoRepo)
+    {
+        $this->inmuebleRepo = $inmuebleRepo;
+        $this->inmuebleTipoRepo = $inmuebleTipoRepo;
+    }
+
     public function index()
     {
+        $inmuebles = $this->inmuebleRepo->where('publicar', 1)->orderBy('published_at','desc')->paginate(6);
+        $tipos = $this->inmuebleTipoRepo->all()->lists('titulo','id');
 
+        return view('frontend.index', compact('inmuebles','tipos'));
 	}
+
+    public function inmueble()
+    {
+
+        return view('frontend.inmueble');
+    }
+
+    public function inmuebles(Request $request)
+    {
+        $tipos = $this->inmuebleTipoRepo->all()->lists('titulo','id');
+        $inmuebles = $this->inmuebleRepo->buscar($request);
+
+        return view('frontend.inmuebles', compact('inmuebles','tipos'));
+    }
 
     //CONTACTO
     public function getContacto()

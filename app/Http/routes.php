@@ -15,11 +15,17 @@ Route::get('/upload/{folder}/{width}x{height}/{image}', ['as' => 'image.adaptive
 
 Route::group(['namespace' => 'Frontend'], function () {
 
-    Route::get('/', function () { return view('frontend.index'); });
+    Route::get('/', ['as' => 'frontend.index', 'uses' => 'FrontendController@index']);
     Route::get('nosotros', function () { return view('frontend.nosotros'); });
     Route::get('servicios', function () { return view('frontend.servicios'); });
     Route::get('galerias', function () { return view('frontend.galeria'); });
     Route::get('testimonios', function () { return view('frontend.testimonios'); });
+
+    //INMUEBLES
+    Route::get('inmueble/{id}-{url}', ['as' => 'frontend.inmueble', 'uses' => 'FrontendController@inmueble']);
+
+    //BUSCAR
+    Route::get('inmuebles', ['as' => 'frontend.inmuebles', 'uses' => 'FrontendController@inmuebles']);
 
     //CONTACTO
     Route::get('contacto', ['as' => 'frontend.contacto.get', 'uses' => 'FrontendController@getContacto']);
