@@ -38,9 +38,7 @@ class InmuebleRepo extends BaseRepo{
     {
         return $this->getModel()
                     ->titulo($request->get('titulo'))
-                    ->category($request->get('category'))
-                    ->destacado($request->get('destacado'))
-                    ->oferta($request->get('oferta'))
+                    ->bTipo($request->get('category'))
                     ->publicar($request->get('publicar'))
                     ->orderBy('created_at', 'desc')
                     ->paginate();
@@ -96,11 +94,12 @@ class InmuebleRepo extends BaseRepo{
     //BUSCAR
     public function buscar(Request $request)
     {
-        $q = $request->input('pr');
-
         return $this->getModel()
-                    ->whereRaw("MATCH(titulo,descripcion) AGAINST(?)",array($q))
-                    ->paginate(24);
+                    ->bTipo($request->input('t'))
+                    ->bMoneda($request->input('m'))
+                    ->bPrecioMax($request->input('p'))
+                    ->orderBy('published_at','desc')
+                    ->paginate(10);
     }
 
     //BUSCAR JSON
