@@ -91,9 +91,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('distrito', 'Distrito', ['class' => 'col-md-2 control-label']) !!}
+                                        {!! Form::label('moneda', 'Moneda', ['class' => 'col-md-2 control-label']) !!}
                                         <div class="col-md-10">
-                                            {!! Form::select('distrito', ['' => 'Seleccionar'] + $distrito, $selected, ['class' => 'form-control select2']) !!}
+                                            {!! Form::select('moneda', ['' => 'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], $selected, ['class' => 'form-control select2']) !!}
                                         </div>
                                     </div>
 

@@ -26,7 +26,6 @@ class InmueblesController extends Controller {
         'descripcion' => 'required|min:10|max:255',
         'contenido' => 'required',
         'tipo' => 'required|exists:inmueble_tipos,id',
-        'distrito' => 'required|exists:distritos,id',
         'area_total' => 'numeric',
         'area_construida' => 'numeric',
         'precio_alquiler' => 'numeric',
@@ -92,13 +91,11 @@ class InmueblesController extends Controller {
 		$titulo = $request->input('titulo');
 		$slug_url = $this->inmuebleRepo->SlugUrl($titulo);
 		$tipo = $request->input('tipo');
-        $distrito = $request->input('distrito');
 
 		//GUARDAR DATOS
 		$post = new Inmueble($request->all());
 		$post->slug_url = $slug_url;
 		$post->inmueble_tipo_id = $tipo;
-        $post->distrito_id = $distrito;
 		$rowSave = $this->inmuebleRepo->create($post, $request->all());
 
         //MENSAJE
@@ -152,12 +149,10 @@ class InmueblesController extends Controller {
         $titulo = $request->input('titulo');
         $slug_url = $this->inmuebleRepo->SlugUrl($titulo);
         $tipo = $request->input('tipo');
-        $distrito = $request->input('distrito');
 
 		//GUARDAR DATOS
         $post->slug_url = $slug_url;
         $post->inmueble_tipo_id = $tipo;
-        $post->distrito_id = $distrito;
 		$this->inmuebleRepo->update($post, $request->all());
 
 		//MENSAJE
