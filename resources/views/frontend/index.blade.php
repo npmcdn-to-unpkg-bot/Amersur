@@ -66,106 +66,73 @@
     </div>
 
     <div class="main-text">
-        <div class="welcome">
-            <h3>Welcome to our page</h3>
-            <div class="col-md-4 welcome-left">
-                <img src="images/img6.jpg" alt="">
-            </div>
-            <div class="col-md-8 welcome-right">
-                <h4>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin established fact that a reader will be distracted Lorem Ipsum when looking at its layout.</h4>
-                <p>Lorem Ipsum was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions.</p>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution is that it has a more of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose</p>
-            </div>
-            <div class="clearfix"> </div>
+
+        <div class="form-busqueda">
+            {!! Form::open(['route' => 'frontend.inmuebles', 'method' => 'GET', 'class' => 'property-filters']) !!}
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        {!! Form::label('t', 'Tipo de Inmueble') !!}
+                        <div class="ci-select">
+                            {!! Form::select('t', [''=>'Seleccionar'] + $tipos , null , ['class' => 'postform']) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        {!! Form::label('m', 'Tipo de Moneda') !!}
+                        <div class="ci-select">
+                            {!! Form::select('m', [''=>'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], null , ['class' => 'postform']) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        {!! Form::label('p', 'Precio máximo') !!}
+                        {!! Form::number('p', null, ['min' => '0', 'step' => '100', 'id' => 'property_max_price']) !!}
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        {!! Form::submit('Buscar propiedades', ['class' => 'property-filters-submit']) !!}
+                    </div>
+                </div>
+
+            {!! Form::close() !!}
         </div>
+
         <div class="offer-grids">
-            <h3>Our best offers</h3>
-            <div class="col-md-4 offer-grids-info">
-                <img src="images/img2.jpg" alt=""/>
-                <div class="offer-text">
-                    <h5>$94.675</h5>
-                </div>
-            </div>
-            <div class="col-md-4 offer-grids-info">
-                <img src="images/img3.jpg" alt=""/>
-                <div class="offer-text">
-                    <h5>$94.675</h5>
-                </div>
-            </div>
-            <div class="col-md-4 offer-grids-info">
-                <img src="images/img13.jpg" alt=""/>
-                <div class="offer-text">
-                    <h5>$144.5</h5>
-                </div>
-            </div>
-            <div class="col-md-6 offer-grids-info off-grid2">
-                <img src="images/img4.jpg" alt=""/>
-                <div class="offer-text">
-                    <h5>$366.5</h5>
-                </div>
-            </div>
-            <div class="col-md-6 offer-grids-info off-grid2">
-                <img src="images/img5.jpg" alt=""/>
-                <div class="offer-text">
-                    <h5>$194.75</h5>
-                </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
+            <h3>Propiedades</h3>
 
-        <div class="features">
-            <div class="col-md-6 feature-left">
-                <h3>Our professional management</h3>
-                <div class="ftrs-left-text">
-                    <h4>The standard Lorem Ipsum passage, used sincepassage</h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident <p>
-                </div>
-                <div class="ftrs-left-text">
-                    <h4>The standard Lorem Ipsum passage, used sincepassage</h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident <p>
-                </div>
-                <div class="ftrs-left-text">
-                    <h4>The standard Lorem Ipsum passage, used sincepassage</h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident <p>
-                </div>
-            </div>
-            <div class="col-md-6 feature-right">
-                <h3>Featured services</h3>
-                <ul class="menu">
-                    <li class="item1"><a href="#">Nemo enim ipsam <span class="icon"> </span></a>
-                        <ul>
-                            <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</a></li>
-                        </ul>
-                    </li>
-                    <li class="item2"><a href="#">Voluptatemdolor <span class="icon"> </span></a>
-                        <ul>
-                            <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</a></li>
-                        </ul>
-                    </li>
-                    <li class="item3"><a href="#">Odit aut fugit <span class="icon"> </span></a>
-                        <ul>
-                            <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</a></li>
-                        </ul>
-                    </li>
-                    <li class="item4"><a href="#">Temdolorlupta <span class="icon"> </span></a>
-                        <ul>
-                            <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</a></li>
-                        </ul>
-                    </li>
-                    <li class="item5"><a href="#">Ptatemdolor aut <span class="icon"> </span></a>
-                        <ul>
-                            <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</a></li>
-                        </ul>
-                    </li>
-                    <li class="item5"><a href="#">Dolor autptatem <span class="icon"> </span></a>
-                        <ul>
-                            <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+            @foreach($inmuebles as $inmueble)
+            {{--*/
+            $inmueble_titulo = $inmueble->titulo;
+            $inmueble_url = route('frontend.inmueble', [$inmueble->id, $inmueble->slug_url]);
+            $inmueble_descripcion = $inmueble->descripcion;
+            $inmueble_imagen = '/upload/'.$inmueble->imagePr()->imagen_carpeta.'400x400/'.$inmueble->imagePr()->imagen;
+            $inmueble_moneda = moneda($inmueble->moneda);
+            $inmueble_precio = $inmueble->precio_venta;
+            /*--}}
+            <div class="col-sm-6 col-xs-12">
+                <div class="item item-media">
+                    <figure class="item-thumb">
+                        <a href="{{ $inmueble_url }}">
+                            <img src="{{ $inmueble_imagen }}" alt="{{ $inmueble_titulo }}" sizes="(max-width: 555px) 100vw, 555px">
+                        </a>
+                    </figure>
 
+                    <div class="item-content">
+                        <p class="item-title"><a href="{{ $inmueble_url }}">{{ $inmueble_titulo }}</a></p>
+
+                        <div class="item-excerpt">
+                            <p>{{ $inmueble_descripcion }}</p>
+                        </div>
+
+                        <a href="{{ $inmueble_url }}" class="item-more property-price">{{ $inmueble_moneda.$inmueble_precio }}</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+            <div class="clearfix"> </div>
         </div>
 
     </div>
