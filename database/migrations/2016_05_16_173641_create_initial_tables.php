@@ -27,6 +27,7 @@ class CreateInitialTables extends Migration {
             $table->text('contenido');
 
             $table->integer('distrito_id');
+            $table->enum('moneda', ['dolar','soles']);
             $table->integer('inmueble_tipo_id');
 
             $table->integer('area_total');
