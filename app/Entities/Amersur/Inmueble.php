@@ -32,13 +32,29 @@ class Inmueble extends BaseEntity {
     }
 
 
-    public function scopeCategory($query, $categoria)
+    public function scopeBTipo($query, $input)
     {
-        $categorias = InmuebleTipo::all()->lists('titulo', 'id');
+        $rows = InmuebleTipo::all()->lists('titulo', 'id');
 
-        if($categoria != "" && isset($categorias[$categoria]))
+        if($input != "" && isset($rows[$input]))
         {
-            $query->where('inmueble_tipo_id', $categoria);
+            $query->where('inmueble_tipo_id', $input);
+        }
+    }
+
+    public function scopeBMoneda($query, $input)
+    {
+        if(trim($input) != "")
+        {
+            $query->where('moneda', $input);
+        }
+    }
+
+    public function scopeBPrecioMax($query, $input)
+    {
+        if($input > 0)
+        {
+            $query->where('precio_venta', '<', $input);
         }
     }
 
