@@ -31,10 +31,10 @@
                 <div class="nav1">
                     <ul class=" nav nav-sidebar">
                         <li class="active"><a href="/">Inicio</a></li>
-                        <li><a href="nosotros">Nosotros</a></li>
-                        <li><a href="servicios">Proyectos</a></li>
-                        <li><a href="galerias">Inmuebles</a></li>
-                        <li><a href="contacto">Contacto</a></li>
+                        <li><a href="/nosotros">Nosotros</a></li>
+                        <li><a href="/servicios">Proyectos</a></li>
+                        <li><a href="/inmuebles">Inmuebles</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
                     </ul>
                     <div class="social-icons">
                         <ul>
