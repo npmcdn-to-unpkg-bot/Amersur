@@ -10,4 +10,15 @@ class ImageController extends Controller {
         return $image->response();
     }
 
+
+    public function withResize($folder, $width, $image)
+    {
+        $file = public_path().'/upload/' . $folder . '/' .$image;
+        $image = \Image::make($file);
+        $image->resize($width, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        return $image->response();
+    }
+
 }

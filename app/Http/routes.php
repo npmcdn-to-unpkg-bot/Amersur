@@ -11,7 +11,11 @@
 |
 */
 
+//CAMBIAR ANCHO Y ALTO DE IMAGEN
 Route::get('/upload/{folder}/{width}x{height}/{image}', ['as' => 'image.adaptiveResize', 'uses' => 'ImageController@adaptiveResize']);
+
+//CAMBIAR ANCHO DE IMAGNE
+Route::get('/upload/{folder}/{width}/{image}', ['as' => 'image.withResize', 'uses' => 'ImageController@withResize']);
 
 Route::group(['namespace' => 'Frontend'], function () {
 
@@ -24,7 +28,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     //INMUEBLES
     Route::get('inmueble/{id}-{url}', ['as' => 'frontend.inmueble', 'uses' => 'FrontendController@inmueble']);
 
-    //BUSCAR
+    //INMUEBLES
     Route::get('inmuebles', ['as' => 'frontend.inmuebles', 'uses' => 'FrontendController@inmuebles']);
 
     //CONTACTO
