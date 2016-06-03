@@ -17,7 +17,7 @@ class InmueblesTableSeeder extends Seeder {
             ['id' => '4', 'titulo' => 'Oficina']
         ]);
 
-        for($i=1; $i<=30; $i++)
+        for($i=1; $i<=15; $i++)
         {
             $titulo = $faker->sentence($nbWords = 3);
             $slug_url = Str::slug($titulo);
@@ -29,7 +29,7 @@ class InmueblesTableSeeder extends Seeder {
                 'titulo'    => $titulo,
                 'slug_url'  => $slug_url,
                 'descripcion' => $faker->text($maxNbChars = 200),
-                'contenido' => $faker->text($maxNbChars = 400),
+                'contenido' => $faker->paragraph(20),
                 'moneda' => $faker->randomElement($array = ['dolar','soles']),
                 'inmueble_tipo_id' => \Amersur\Entities\Amersur\InmuebleTipo::all()->random()->id,
                 'area_total' => $faker->numberBetween(100, 5000),
