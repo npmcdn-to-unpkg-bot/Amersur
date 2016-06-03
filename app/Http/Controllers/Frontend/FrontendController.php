@@ -33,18 +33,21 @@ class FrontendController extends Controller {
         return view('frontend.index', compact('inmuebles','tipos'));
 	}
 
-    public function inmueble()
-    {
-
-        return view('frontend.inmueble');
-    }
-
+    //INMUEBLES
     public function inmuebles(Request $request)
     {
         $tipos = $this->inmuebleTipoRepo->all()->lists('titulo','id');
         $inmuebles = $this->inmuebleRepo->buscar($request);
 
         return view('frontend.inmuebles', compact('inmuebles','tipos'));
+    }
+
+    //INMUEBLES SELECCIONADO
+    public function inmueble($id, $url)
+    {
+        $inmueble = $this->inmuebleRepo->findOrFail($id);
+
+        return view('frontend.inmuebles-nota', compact('inmueble'));
     }
 
     //CONTACTO

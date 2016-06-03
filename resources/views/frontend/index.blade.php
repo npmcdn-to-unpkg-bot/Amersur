@@ -100,7 +100,7 @@
         </div>
 
         <div class="offer-grids">
-            <h3>Propiedades</h3>
+            <h3>Inmuebles</h3>
 
             @foreach($inmuebles as $inmueble)
             {{--*/

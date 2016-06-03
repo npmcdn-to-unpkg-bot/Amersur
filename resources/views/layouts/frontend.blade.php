@@ -24,10 +24,10 @@
         <!--side-bar-->
         <div class="col-sm-3 col-md-2 sidebar">
             <div class="logo">
-                <a href="/"><img src="images/logo.png" alt="logo"/></a>
+                <a href="/"><img src="/images/logo.png" alt="logo"/></a>
             </div>
             <div class="top-nav">
-                <span class="menu-icon"><img src="images/menu-icon.png" alt=""/></span>
+                <span class="menu-icon"><img src="/images/menu-icon.png" alt=""/></span>
                 <div class="nav1">
                     <ul class=" nav nav-sidebar">
                         <li class="active"><a href="/">Inicio</a></li>
@@ -66,6 +66,9 @@
 {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js') !!}
 {{-- Bootstrap --}}
 {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js') !!}
+
+{{-- AddThis --}}
+{!! HTML::script('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5750772570126b33') !!}
 
 {{-- Script Menu --}}
 <script>
