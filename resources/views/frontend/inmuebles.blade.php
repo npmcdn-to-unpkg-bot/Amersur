@@ -89,7 +89,7 @@
             </div>
             @endforeach
 
-            <div class="col-md-7 col-sm-12">
+            <div class="col-md-12 col-sm-12 text-center">
                 {!! $inmuebles->appends(Request::all())->render() !!}
             </div>
 
