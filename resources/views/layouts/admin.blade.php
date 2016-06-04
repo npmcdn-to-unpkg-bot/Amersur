@@ -160,7 +160,7 @@
 				</li>
 
 				<li {!! (Request::is('admin/slider*') ? 'class="active open"' : '') !!}>
-					<a href="{{ route('admin.slider.edit', 1) }}">
+					<a href="{{ route('admin.slider.index') }}">
 						<i class="icon-screen-desktop"></i>
 						<span class="title">Slider</span>
 					</a>

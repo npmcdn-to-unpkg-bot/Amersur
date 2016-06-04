@@ -89,7 +89,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     });
 
     //SLIDER
-    Route::resource('slider', 'SlidersController', ['only' => ['edit','update']]);
+    Route::resource('slider', 'SlidersController');
+    Route::put('slider-publicar/{id}', ['as' => 'admin.slider.publicar', 'uses' => 'SlidersController@publicar']);
 
     //PRODUCTOS
     Route::resource('inmuebles', 'InmueblesController');

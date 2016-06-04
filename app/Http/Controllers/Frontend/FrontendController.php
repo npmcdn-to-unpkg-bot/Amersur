@@ -5,6 +5,7 @@ use Amersur\Http\Controllers\Controller;
 
 use Amersur\Repositories\Amersur\InmuebleRepo;
 use Amersur\Repositories\Amersur\InmuebleTipoRepo;
+use Amersur\Repositories\Admin\SliderRepo;
 
 use Amersur\Entities\Admin\Configuration;
 use Amersur\Entities\Admin\ContactoMensaje;
@@ -17,20 +18,24 @@ class FrontendController extends Controller {
 
     protected $inmuebleRepo;
     protected $inmuebleTipoRepo;
+    protected $sliderRepo;
 
     public function __construct(InmuebleRepo $inmuebleRepo,
-                                InmuebleTipoRepo $inmuebleTipoRepo)
+                                InmuebleTipoRepo $inmuebleTipoRepo,
+                                SliderRepo $sliderRepo)
     {
         $this->inmuebleRepo = $inmuebleRepo;
         $this->inmuebleTipoRepo = $inmuebleTipoRepo;
+        $this->sliderRepo = $sliderRepo;
     }
 
     public function index()
     {
         $inmuebles = $this->inmuebleRepo->where('publicar', 1)->orderBy('published_at','desc')->paginate(6);
         $tipos = $this->inmuebleTipoRepo->all()->lists('titulo','id');
+        $slider = $this->sliderRepo->where('publicar', 1)->get();
 
-        return view('frontend.index', compact('inmuebles','tipos'));
+        return view('frontend.index', compact('inmuebles','tipos','slider'));
 	}
 
     //INMUEBLES

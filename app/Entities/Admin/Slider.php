@@ -3,5 +3,7 @@
 use Amersur\Entities\BaseEntity;
 
 class Slider extends BaseEntity {
-	protected $fillable = ['header','body','footer'];
+
+	protected $fillable = ['titulo','descripcion','moneda','precio','enlace','publicar'];
+
 }

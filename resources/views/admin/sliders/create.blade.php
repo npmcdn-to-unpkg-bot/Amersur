@@ -1,9 +1,6 @@
 @extends('layouts.admin')
 
 @section('contenido_header')
-    {{-- FancyBox --}}
-    {!! HTML::style('assets/global/plugins/fancybox/jquery.fancybox.css') !!}
-
     {{-- SELECT 2 --}}
     {!! HTML::style('assets/global/plugins/select2/css/select2.min.css') !!}
     {!! HTML::style('assets/global/plugins/select2/css/select2-bootstrap.min.css') !!}
@@ -11,9 +8,9 @@
 
 @section('contenido_admin_title')
     Slider - Nuevo
-    @stop
+@stop
 
-    @section('contenido_admin')
+@section('contenido_admin')
             <!--main content-->
     <div class="row">
         <!--row starts-->
@@ -32,7 +29,7 @@
                     </div>
                 @endif
 
-                {!! Form::model($post, ['route' => ['admin.slider.update', $post->id], 'method' => 'PUT', 'files' => 'true', 'id' => 'formRegister']) !!}
+                {!! Form::open(['route' => 'admin.slider.store', 'method' => 'POST', 'files' => 'true', 'id' => 'formRegister']) !!}
 
                 <div class="col-md-6">
 
@@ -66,19 +63,6 @@
                                     <span class="help-block">Tamaño de imagen: 1400px x 700px</span>
                                 </div>
 
-                                <div class="form-group">
-                                    {!! Form::label('imagen_actual', 'Imagen actual', ['class' => 'control-label']) !!}
-                                    @if($post->imagen <> "")
-                                        <a class="fancybox" href="/upload/{{ $post->imagen_carpeta."".$post->imagen }}" title="{{ $post->titulo }}">
-                                            <img src="/upload/{{ $post->imagen_carpeta }}200x100/{{ $post->imagen }}" alt="" />
-                                        </a>
-                                    @else
-                                        No hay imagen
-                                    @endif
-                                    {!! Form::hidden('imagen_actual', $post->imagen) !!}
-                                    {!! Form::hidden('imagen_actual_carpeta', $post->imagen_carpeta) !!}
-                                </div>
-
                             </div>
 
                         </div>
@@ -100,7 +84,7 @@
                                     <div class="form-group">
                                         {!! Form::label('moneda', 'Moneda', ['class' => 'col-md-3 control-label']) !!}
                                         <div class="col-md-9">
-                                            {!! Form::select('moneda', ['' => 'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], $post->moneda, ['class' => 'form-control select2']) !!}
+                                            {!! Form::select('moneda', ['' => 'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], [], ['class' => 'form-control select2']) !!}
                                         </div>
                                     </div>
 
@@ -184,9 +168,4 @@
     {{-- SELECT 2 --}}
     {!! HTML::script('assets/global/plugins/select2/js/select2.full.min.js') !!}
     {!! HTML::script('assets/pages/scripts/components-select2.js') !!}
-
-    {{-- FANCYBOX --}}
-    {!! HTML::script('assets/global/plugins/fancybox/jquery.mousewheel-3.0.6.pack.js') !!}
-    {!! HTML::script('assets/global/plugins/fancybox/jquery.fancybox.js') !!}
-    {!! HTML::script('assets/admin/pages/scripts/fancybox.js') !!}
 @stop

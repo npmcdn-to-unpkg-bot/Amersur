@@ -66,8 +66,12 @@ class CreateAdminTables extends Migration {
 
             $table->string('titulo');
             $table->text('descripcion');
+            $table->enum('moneda', ['dolar','soles']);
             $table->double('precio');
             $table->string('enlace');
+            $table->boolean('publicar');
+            $table->string('imagen');
+            $table->string('imagen_carpeta');
 
             $table->integer('user_id')->nullable()->default(NULL);
 
