@@ -154,6 +154,7 @@ return [
 		'Amersur\Providers\EventServiceProvider',
 		'Amersur\Providers\RouteServiceProvider',
         'Amersur\Providers\AdminServiceProvider',
+        'Amersur\Providers\FrontendServiceProvider',
 
 	],
 

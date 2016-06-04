@@ -1,10 +1,11 @@
 <?php namespace Amersur\Http\ViewComposers;
 
+use Amersur\Entities\Admin\SocialMedia;
 use Illuminate\Contracts\View\View;
 
 use Amersur\Entities\Admin\Configuration;
 
-class ConfigComposer {
+class FrontendComposer {
     /**
      * Bind data to the view.
      *
@@ -14,8 +15,9 @@ class ConfigComposer {
     public function compose(View $view)
     {
         $comConfig = Configuration::where('id', 1)->first();
+        $comSocial = SocialMedia::where('id', 1)->first();
 
-        $view->with(['comConfig' => $comConfig]);
+        $view->with(['comConfig' => $comConfig, 'comSocial' => $comSocial]);
     }
 
 }

@@ -42,6 +42,13 @@
                     </div>
 
                     <div class="form-group">
+                        {!! Form::label('instagram', 'Instagram', ['class' => 'col-md-3 control-label']) !!}
+                        <div class="col-md-9">
+                            {!! Form::text('instagram', null, ['class' => 'form-control', 'placeholder' => 'https://www.instagram.com/']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         {!! Form::label('google', 'Google+', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::text('google', null, ['class' => 'form-control', 'placeholder' => 'https://plus.google.com/']) !!}
@@ -52,13 +59,6 @@
                         {!! Form::label('pinterest', 'Pinterest', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::text('pinterest', null, ['class' => 'form-control', 'placeholder' => 'https://www.pinterest.com/']) !!}
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('skype', 'Skype', ['class' => 'col-md-3 control-label']) !!}
-                        <div class="col-md-9">
-                            {!! Form::text('skype', null, ['class' => 'form-control', 'placeholder' => 'Cuenta de Usuario de Skype']) !!}
                         </div>
                     </div>
 
@@ -82,13 +82,6 @@
                             {!! Form::text('youtube', null, ['class' => 'form-control', 'placeholder' => 'https://www.youtube.com/']) !!}
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        {!! Form::label('whatsapp', 'Whatsapp', ['class' => 'col-md-3 control-label']) !!}
-                        <div class="col-md-9">
-                            {!! Form::text('whatsapp', null, ['class' => 'form-control', 'placeholder' => 'Número de celular']) !!}
-                        </div>
-                    </div>                    
 
                     <!-- Form actions -->
                     <div class="form-group">

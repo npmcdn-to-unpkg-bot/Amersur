@@ -30,20 +30,15 @@
                 <span class="menu-icon"><img src="/images/menu-icon.png" alt=""/></span>
                 <div class="nav1">
                     <ul class=" nav nav-sidebar">
-                        <li class="active"><a href="/">Inicio</a></li>
-                        <li><a href="/nosotros">Nosotros</a></li>
-                        <li><a href="/servicios">Proyectos</a></li>
-                        <li><a href="/inmuebles">Inmuebles</a></li>
-                        <li><a href="/contacto">Contacto</a></li>
+                        <li {!! (Request::is('/') ? 'class="active"' : '') !!}><a href="/">Inicio</a></li>
+                        <li {!! (Request::is('nosotros*') ? 'class="active"' : '') !!}><a href="/nosotros">Nosotros</a></li>
+                        <li {!! (Request::is('servicios*') ? 'class="active"' : '') !!}><a href="/servicios">Proyectos</a></li>
+                        <li {!! (Request::is('inmueble*') ? 'class="active"' : '') !!}><a href="/inmuebles">Inmuebles</a></li>
+                        <li {!! (Request::is('contacto*') ? 'class="active"' : '') !!}><a href="/contacto">Contacto</a></li>
                     </ul>
-                    <div class="social-icons">
-                        <ul>
-                            <li><a href="#"></a></li>
-                            <li><a href="#" class="fb"></a></li>
-                            <li><a href="#" class="be"></a></li>
-                            <li><a href="#" class="gg"></a></li>
-                        </ul>
-                    </div>
+
+                    @include('partials.social')
+
                 </div>
             </div>
             <div class="clearfix"> </div>

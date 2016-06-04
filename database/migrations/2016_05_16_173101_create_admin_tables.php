@@ -98,13 +98,12 @@ class CreateAdminTables extends Migration {
             $table->increments('id');
 
             $table->string('facebook');
+            $table->string('instagram');
             $table->string('google');
             $table->string('pinterest');
-            $table->string('skype');
             $table->string('tumblr');
             $table->string('twitter');
             $table->string('youtube');
-            $table->string('whatsapp');
 
             $table->integer('user_id')->nullable()->default(NULL);
 

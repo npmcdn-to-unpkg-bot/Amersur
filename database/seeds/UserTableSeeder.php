@@ -39,7 +39,7 @@ class UserTableSeeder extends Seeder {
             'facebook'  => '',
             'google'    => '',
             'pinterest' => '',
-            'skype'     => '',
+            'instagram' => '',
             'tumblr'    => '',
             'twitter'   => '',
             'youtube'   => ''
