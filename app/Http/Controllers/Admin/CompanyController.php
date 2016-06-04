@@ -17,13 +17,12 @@ class CompanyController extends Controller {
 
     protected $rulesSocial = [
         'facebook'  => 'url',
+        'instagram' => 'url',
         'google'    => 'url',
         'pinterest' => 'url',
-        'skype'     => 'string',
         'tumblr'    => 'url',
         'twitter'   => 'url',
-        'youtube'   => 'url',
-        'whatsapp'  => 'string'
+        'youtube'   => 'url'
     ];
 
     protected $companyRepo;
