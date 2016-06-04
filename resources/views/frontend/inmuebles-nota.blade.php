@@ -9,10 +9,9 @@ $row_tipo = $inmueble->tipo->titulo;
 $row_area_total = $inmueble->area_total;
 $row_area_construida = $inmueble->area_construida;
 $row_moneda = moneda($inmueble->moneda);
-$row_precio_alquiler = $inmueble->precio_alquiler;
-$row_precio_venta = $inmueble->precio_venta;
+$row_precio_alquiler = precio($inmueble->precio_alquiler);
+$row_precio_venta = precio($inmueble->precio_venta);
 $row_imagen = '/upload/'.$inmueble->imagePr()->imagen_carpeta.'1200x600/'.$inmueble->imagePr()->imagen;
-
 /*--}}
 
 @section('contenido_header')

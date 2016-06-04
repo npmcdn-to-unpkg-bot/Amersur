@@ -9,3 +9,9 @@ function moneda($field)
     }
 
 }
+
+function precio($valor)
+{
+    $precio = number_format($valor, 2, '.', ',');
+    return $precio;
+}

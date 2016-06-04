@@ -66,7 +66,7 @@
             $inmueble_descripcion = $inmueble->descripcion;
             $inmueble_imagen = '/upload/'.$inmueble->imagePr()->imagen_carpeta.'400x400/'.$inmueble->imagePr()->imagen;
             $inmueble_moneda = moneda($inmueble->moneda);
-            $inmueble_precio = $inmueble->precio_venta;
+            $inmueble_precio = precio($inmueble->precio_venta);
             /*--}}
             <div class="col-sm-6 col-xs-12">
                 <div class="item item-media">
