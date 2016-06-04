@@ -49,6 +49,11 @@ class UserTableSeeder extends Seeder {
             'id' 		=> 1,
             'mapa'		=> '-12.077700, -76.979684'
         ]);
+
+        \DB::table('empresas')->insert([
+            'id' 		=> 1,
+            'contenido'	=> ''
+        ]);
     }
 
 }

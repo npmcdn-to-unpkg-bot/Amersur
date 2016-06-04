@@ -140,6 +140,15 @@ class CreateAdminTables extends Migration {
             $table->timestamps();
         });
 
+        Schema::create('empresas', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->text('contenido');
+
+            $table->timestamps();
+        });
+
 	}
 
 	/**

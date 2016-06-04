@@ -151,6 +151,10 @@
 						{!! (Request::is('admin/company*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
 					</a>
 					<ul class="sub-menu">
+                        <li {!! (Request::is('admin/company/empresa*') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.empresa') }}">
+                                Nosotros</a>
+                        </li>
                         <li {!! (Request::is('admin/company/contacto*') ? 'class="active"' : '') !!}>
                             <a href="{{ route('admin.contacto') }}">
                                 Info Contacto</a>

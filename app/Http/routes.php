@@ -20,10 +20,7 @@ Route::get('/upload/{folder}/{width}/{image}', ['as' => 'image.withResize', 'use
 Route::group(['namespace' => 'Frontend'], function () {
 
     Route::get('/', ['as' => 'frontend.index', 'uses' => 'FrontendController@index']);
-    Route::get('nosotros', function () { return view('frontend.nosotros'); });
-    Route::get('servicios', function () { return view('frontend.servicios'); });
-    Route::get('galerias', function () { return view('frontend.galeria'); });
-    Route::get('testimonios', function () { return view('frontend.testimonios'); });
+    Route::get('nosotros', ['as' => 'frontend.nosotros', 'uses' => 'FrontendController@nosotros']);
 
     //INMUEBLES
     Route::get('inmueble/{id}-{url}', ['as' => 'frontend.inmueble', 'uses' => 'FrontendController@inmueble']);
@@ -89,6 +86,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         //CONTACTO
         Route::get('contacto', ['as' => 'admin.contacto', 'uses' => 'ContactoController@edit']);
         Route::put('contacto', ['as' => 'admin.contacto.update', 'uses' => 'ContactoController@update']);
+
+        //EMPRESA
+        Route::get('empresa', ['as' => 'admin.empresa', 'uses' => 'EmpresaController@edit']);
+        Route::put('empresa', ['as' => 'admin.empresa.update', 'uses' => 'EmpresaController@update']);
 
     });
 
