@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Amersur</title>
+    <title>{{ $comConfig->titulo }}</title>
+
+    <meta name="description" content="{{ $comConfig->description }}" />
+    <meta name="keywords" content="{{ $comConfig->keywords }}" />
+    <meta name="robots" content="index, follow"/>
 
     {{-- Bootstrap --}}
     {!! HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css') !!}
