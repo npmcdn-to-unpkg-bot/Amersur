@@ -124,24 +124,6 @@ class CreateAdminTables extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('pages', function (Blueprint $table)
-        {
-            $table->increments('id');
-
-            $table->string('titulo');
-            $table->string('slug_url');
-            $table->string('descripcion');
-            $table->text('contenido');
-
-            $table->boolean('publicar')->default(false);
-
-            $table->integer('user_id')->nullable()->default(NULL);
-
-            $table->timestamps();
-            $table->softDeletes();
-        });
-
-
         Schema::create('histories', function(Blueprint $table)
         {
             $table->increments('id');
@@ -158,18 +140,6 @@ class CreateAdminTables extends Migration {
             $table->timestamps();
         });
 
-        /*
-         * DISTRITOS
-         */
-        Schema::create('distritos', function(Blueprint $table)
-        {
-            $table->increments('id');
-
-            $table->string('titulo');
-
-            $table->timestamps();
-            $table->softDeletes();
-        });
 	}
 
 	/**
@@ -187,9 +157,7 @@ class CreateAdminTables extends Migration {
         Schema::drop('contacto_mensajes');
         Schema::drop('contacto_infos');
         Schema::drop('social_media');
-        Schema::drop('pages');
         Schema::drop('histories');
-        Schema::drop('distritos');
 	}
 
 }
