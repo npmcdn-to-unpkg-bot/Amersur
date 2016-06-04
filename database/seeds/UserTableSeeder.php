@@ -44,6 +44,11 @@ class UserTableSeeder extends Seeder {
             'twitter'   => '',
             'youtube'   => ''
         ]);
+
+        \DB::table('contacto_infos')->insert([
+            'id' 		=> 1,
+            'mapa'		=> '-12.077700, -76.979684'
+        ]);
     }
 
 }

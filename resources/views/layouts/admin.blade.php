@@ -151,9 +151,12 @@
 						{!! (Request::is('admin/company*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
 					</a>
 					<ul class="sub-menu">
+                        <li {!! (Request::is('admin/company/contacto*') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.contacto') }}">
+                                Info Contacto</a>
+                        </li>
 						<li {!! (Request::is('admin/company/social*') ? 'class="active"' : '') !!}>
 							<a href="{{ route('admin.company.social.edit') }}">
-							<i class="icon-share"></i>
 							Redes sociales</a>
 						</li>
 					</ul>
@@ -190,28 +193,6 @@
                         </li>
                     </ul>
                 </li>
-
-                <li {!! (Request::is('admin/servicios*') ? 'class="active open"' : '') !!}>
-                    <a href="{{ route('admin.servicios.index') }}">
-                        <i class="icon-energy"></i>
-                        <span class="title">Servicios</span>
-                    </a>
-                </li>
-
-				<li {!! (Request::is('admin/gallery*') ? 'class="active open"' : '') !!}>
-					<a href="javascript:;">
-						<i class="icon-camera"></i>
-						<span class="title">Galería</span>
-						{!! (Request::is('admin/gallery*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
-					</a>
-					<ul class="sub-menu">
-						<li {!! (Request::is('admin/gallery/video*') ? 'class="active"' : '') !!}>
-							<a href="{{ route('admin.gallery.video.index') }}">
-							<i class="icon-social-youtube"></i>
-							Videos</a>
-						</li>
-					</ul>
-				</li>
 
 				<li {!! (Request::is('admin/contacto*') ? 'class="active open"' : '') !!}>
 					<a href="javascript:;">

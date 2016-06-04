@@ -97,6 +97,16 @@ class CreateAdminTables extends Migration {
             $table->softDeletes();
         });
 
+        Schema::create('contacto_infos', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('mapa');
+            $table->text('contenido');
+
+            $table->timestamps();
+        });
+
         Schema::create('social_media', function (Blueprint $table)
         {
             $table->increments('id');
@@ -175,6 +185,7 @@ class CreateAdminTables extends Migration {
         Schema::drop('configurations');
         Schema::drop('sliders');
         Schema::drop('contacto_mensajes');
+        Schema::drop('contacto_infos');
         Schema::drop('social_media');
         Schema::drop('pages');
         Schema::drop('histories');

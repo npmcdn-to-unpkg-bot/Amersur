@@ -86,6 +86,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('social', ['as' => 'admin.company.social.edit', 'uses' => 'CompanyController@socialEdit']);
         Route::put('social', ['as' => 'admin.company.social.update', 'uses' => 'CompanyController@socialUpdate']);
 
+        //CONTACTO
+        Route::get('contacto', ['as' => 'admin.contacto', 'uses' => 'ContactoController@edit']);
+        Route::put('contacto', ['as' => 'admin.contacto.update', 'uses' => 'ContactoController@update']);
+
     });
 
     //SLIDER
@@ -106,21 +110,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     //PRODUCTOS - CATEGORIAS
     Route::resource('inmueble-tipos', 'InmuebleTiposController');
-
-    //GALERIA
-    Route::group(['prefix' => 'gallery'], function(){
-
-        //GALERIA DE VIDEOS
-        Route::resource('video', 'GalleryVideosController');
-        Route::get('video-deletes', ['as' => 'admin.gallery.video.listsDeletes', 'uses' => 'GalleryVideosController@listsDeletes']);
-        Route::delete('video-deletes/destroy/{id}', ['as' => 'admin.gallery.video.listsDeletes.destroy', 'uses' => 'GalleryVideosController@destroyTotal']);
-        Route::post('video-deletes/restore/{id}', ['as' => 'admin.gallery.video.listsDeletes.restore', 'uses' => 'GalleryVideosController@restore']);
-        Route::post('video/url', ['as' => 'admin.gallery.video.slugUrl', 'uses' => 'GalleryVideosController@slugUrl']);
-
-    });
-
-    //SERVICIOS
-    Route::resource('servicios', 'ServiciosController');
 
     //CONFIGURACION
     Route::get('config', ['as' => 'admin.config', 'uses' => 'ConfigsController@edit']);

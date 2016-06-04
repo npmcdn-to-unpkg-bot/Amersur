@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Amersur\Http\Controllers\Controller;
 
+use Amersur\Repositories\Admin\ContactoInfoRepo;
 use Amersur\Repositories\Amersur\InmuebleRepo;
 use Amersur\Repositories\Amersur\InmuebleTipoRepo;
 use Amersur\Repositories\Admin\SliderRepo;
@@ -16,14 +17,17 @@ class FrontendController extends Controller {
 
     use CapchaTrait;
 
+    protected $contactoInfoRepo;
     protected $inmuebleRepo;
     protected $inmuebleTipoRepo;
     protected $sliderRepo;
 
-    public function __construct(InmuebleRepo $inmuebleRepo,
+    public function __construct(ContactoInfoRepo $contactoInfoRepo,
+                                InmuebleRepo $inmuebleRepo,
                                 InmuebleTipoRepo $inmuebleTipoRepo,
                                 SliderRepo $sliderRepo)
     {
+        $this->contactoInfoRepo = $contactoInfoRepo;
         $this->inmuebleRepo = $inmuebleRepo;
         $this->inmuebleTipoRepo = $inmuebleTipoRepo;
         $this->sliderRepo = $sliderRepo;
@@ -58,7 +62,9 @@ class FrontendController extends Controller {
     //CONTACTO
     public function getContacto()
     {
-        return view('frontend.contacto');
+        $contacto = $this->contactoInfoRepo->findOrFail(1);
+
+        return view('frontend.contacto', compact('contacto'));
     }
 
     public function postContacto(Request $request)
