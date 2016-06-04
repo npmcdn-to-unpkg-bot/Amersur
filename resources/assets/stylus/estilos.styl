@@ -674,7 +674,7 @@ img.img-responsive.glry-img {
 /*--//gallery-page--*/
 /*--contact-page--*/
 .map {
-    margin: 5em 0 4em;
+    margin: 0 0 4em;
 }
 .map iframe {
   width: 100%;
@@ -740,26 +740,31 @@ p.cnt-p {
 	resize: none;
 	padding: 10px 15px;
 }
-.contact-form input[type="submit"]{
-	background: #ef717a;
-	border: 1px solid #ef717a;
-	padding: .6em 0;
-	width: 14%;
-	margin-top: 2em;
-	font-size: 14px;
-	color: #fff;
-	font-weight: 400;
-	letter-spacing: 1px;
-	outline: none;
-	transition: 0.5s all ease;
-	-webkit-transition: 0.5s all ease;
-	-moz-transition: 0.5s all ease;
-	-o-transition: 0.5s all ease;
-	-ms-transition: 0.5s all ease;
+.contact-form .button{
+    background: #ef717a;
+    border: 1px solid #ef717a;
+    padding: 1em;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 1px;
+    outline: 0;
+    transition: .5s all ease;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    -o-transition: .5s all ease;
+    -ms-transition: .5s all ease;
+    float: right;
 }
-.contact-form input[type="submit"]:hover{
+.contact-form .button:hover{
 	background-color: #d95459;
 }
+.contact-form .g-recaptcha{
+    float: left;
+    margin-top: 10px;
+}
+
 .contact-grids h3 {
   text-align: left;
 }
@@ -2133,7 +2138,11 @@ table.property-overview tr th:after {
 .tumblr a{ color: #32506d; }
 .twitter a{ color: #55acee; }
 .youtube a{ color: #bb0000; }
-    
+
+#map{
+    width 100%
+    height 400px
+}
 
 /* GALERIA DE IMAGENES */
 .grid{
@@ -2151,3 +2160,44 @@ table.property-overview tr th:after {
 
 .grid-item--width2 { width: 24%; }
 
+//PAGINACION
+colorPrincipal = #E07579
+colorBorder = #dddddd
+colorTextHover = #d95459
+backgroundHover = #eeeeee
+colorActive = #ffffff
+colorDisable = #777777
+
+.pagination > li > a,
+.pagination > li > span {
+    color: colorPrincipal;
+    border: 1px solid colorBorder;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    color: colorTextHover;
+    background-color: backgroundHover;
+    border-color: colorBorder;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    color: colorActive;
+    background-color: colorPrincipal;
+    border-color: colorPrincipal;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+    color: colorDisable;
+    background-color: colorActive;
+    border-color: colorBorder;
+}
