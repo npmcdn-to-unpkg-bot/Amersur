@@ -31,20 +31,20 @@
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         {!! Form::label('tipos', 'Tipo de Inmueble') !!}
                         <div class="ci-select">
-                            {!! Form::select('tipos', [''=>'Seleccionar'] + $tipos , null , ['class' => 'postform']) !!}
+                            {!! Form::select('t', [''=>'Seleccionar'] + $tipos , null , ['class' => 'postform']) !!}
                         </div>
                     </div>
 
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         {!! Form::label('moneda', 'Tipo de Moneda') !!}
                         <div class="ci-select">
-                            {!! Form::select('moneda', [''=>'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], null , ['class' => 'postform']) !!}
+                            {!! Form::select('m', [''=>'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], null , ['class' => 'postform']) !!}
                         </div>
                     </div>
 
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         {!! Form::label('precio', 'Precio máximo') !!}
-                        {!! Form::number('precio', null, ['min' => '0', 'step' => '100', 'id' => 'property_max_price']) !!}
+                        {!! Form::number('p', null, ['min' => '0', 'step' => '100', 'id' => 'property_max_price']) !!}
 
                     </div>
 
@@ -89,7 +89,7 @@
             </div>
             @endforeach
 
-            <div class="col-md-12 col-sm-12 text-center">
+            <div class="col-sm-12 col-xs-12 text-center">
                 {!! $inmuebles->appends(Request::all())->render() !!}
             </div>
 
