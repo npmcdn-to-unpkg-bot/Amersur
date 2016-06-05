@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner visible-lg visible-md">
 
     <div id="slider_amersur" class="rev_slider fullwidthabanner" style="display:none;">
 
