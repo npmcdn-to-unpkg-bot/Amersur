@@ -139,14 +139,12 @@
 
 				<li {!! (Request::is('admin') ? 'class="active open"' : '') !!}>
 					<a href="{{ route('admin.home') }}">
-						<i class="icon-home"></i>
 						<span class="title">Dashboard</span>
 					</a>
 				</li>
 
 				<li {!! (Request::is('admin/company*') ? 'class="active open"' : '') !!}>
 					<a href="javascript:;">
-						<i class="icon-globe"></i>
 						<span class="title">Empresa</span>
 						{!! (Request::is('admin/company*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
 					</a>
@@ -168,46 +166,45 @@
 
 				<li {!! (Request::is('admin/slider*') ? 'class="active open"' : '') !!}>
 					<a href="{{ route('admin.slider.index') }}">
-						<i class="icon-screen-desktop"></i>
 						<span class="title">Slider</span>
 					</a>
 				</li>
 
                 <li {!! (Request::is('admin/inmueble*') ? 'class="active open"' : '') !!}>
                     <a href="javascript:;">
-                        <i class="icon-grid"></i>
                         <span class="title">Inmuebles</span>
                         {!! (Request::is('admin/inmueble*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
                     </a>
                     <ul class="sub-menu">
                         <li {!! (Request::is('admin/inmuebles') ? 'class="active"' : '') !!}>
                             <a href="{{ route('admin.inmuebles.index') }}">
-                                <i class="icon-list"></i>
                                 Lista</a>
                         </li>
                         <li {!! (Request::is('admin/inmuebles/create') ? 'class="active"' : '') !!}>
                             <a href="{{ route('admin.inmuebles.create') }}">
-                                <i class="icon-note"></i>
                                 Nuevo registro</a>
                         </li>
                         <li {!! (Request::is('admin/inmueble-tipos*') ? 'class="active"' : '') !!}>
                             <a href="{{ route('admin.inmueble-tipos.index') }}">
-                                <i class="icon-layers"></i>
                                 Tipos</a>
                         </li>
                     </ul>
                 </li>
 
+                <li {!! (Request::is('admin/agenda*') ? 'class="active open"' : '') !!}>
+                    <a href="{{ route('admin.agenda.index') }}">
+                        <span class="title">Agenda</span>
+                    </a>
+                </li>
+
 				<li {!! (Request::is('admin/contacto*') ? 'class="active open"' : '') !!}>
 					<a href="javascript:;">
-						<i class="icon-envelope"></i>
 						<span class="title">Contacto</span>
 						{!! (Request::is('admin/contacto*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
 					</a>
 					<ul class="sub-menu">
 						<li {!! (Request::is('admin/contacto/mensajes*') ? 'class="active"' : '') !!}>
 							<a href="{{ route('admin.contacto.mensajes.index') }}">
-							<i class="icon-speech"></i>
 							Mensajes</a>
 						</li>
 					</ul>
@@ -215,24 +212,20 @@
 
 				<li {!! (Request::is('admin/user*') ? 'class="active open"' : '') !!}>
 					<a href="javascript:;">
-						<i class="icon-people"></i>
 						<span class="title">Usuarios</span>
 						{!! (Request::is('admin/user*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
 					</a>
 					<ul class="sub-menu">
 						<li {!! (Request::is('admin/user') ? 'class="active"' : '') !!}>
 							<a href="{{ route('admin.user.index') }}">
-							<i class="icon-list"></i>
 							Todas los usuarios</a>
 						</li>
 						<li {!! (Request::is('admin/user/create') ? 'class="active"' : '') !!}>
 							<a href="{{ route('admin.user.create') }}">
-							<i class="icon-user-follow"></i>
 							Nuevo usuario</a>
 						</li>
 						<li {!! (Request::is('admin/user-profile') ? 'class="active"' : '') !!}>
 							<a href="admin">
-							<i class="icon-emoticon-smile"></i>
 							Mi Perfil</a>
 						</li>
 					</ul>
@@ -240,7 +233,6 @@
 
 				<li {!! (Request::is('admin/config') ? 'class="active open"' : '') !!}>
 					<a href="{{ route('admin.config') }}">
-						<i class="icon-settings"></i>
 						<span class="title">Configuración</span>
 					</a>
 				</li>

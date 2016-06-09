@@ -123,4 +123,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     //CONTACTO - MENSAJES
     Route::resource('contacto/mensajes', 'ContactoMensajesController', ['only' => ['index','show']]);
 
+    //AGENDA DE CLIENTE
+    Route::resource('agenda', 'AgendaController');
+
 });
