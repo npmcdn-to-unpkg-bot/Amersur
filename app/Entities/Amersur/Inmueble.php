@@ -9,7 +9,7 @@ class Inmueble extends BaseEntity {
 
     protected $dates = ['deleted_at'];
 
-	protected $fillable = ['titulo','slug_url','descripcion','contenido','area_total','area_construida','precio_alquiler','precio_venta','publicar','published_at',];
+	protected $fillable = ['titulo','slug_url','descripcion','contenido','area_total','area_construida','precio_alquiler','precio_venta','publicar','published_at'];
 
     public function user()
     {

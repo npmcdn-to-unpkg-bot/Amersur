@@ -6,8 +6,6 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Amersur\Http\Controllers\Controller;
 
-use Amersur\Repositories\Admin\DistritoRepo;
-
 use Amersur\Repositories\Amersur\InmuebleTipoRepo;
 
 use Amersur\Entities\Amersur\Inmueble;
@@ -16,7 +14,6 @@ use Amersur\Repositories\Amersur\InmuebleRepo;
 use Amersur\Entities\Amersur\InmuebleImagen;
 use Amersur\Repositories\Amersur\InmuebleImagenRepo;
 
-use Amersur\Entities\Admin\History;
 use Amersur\Repositories\Admin\HistoryRepo;
 
 class InmueblesController extends Controller {
@@ -34,18 +31,15 @@ class InmueblesController extends Controller {
         'published_at' => 'required'
 	];
 
-    protected $distritoRepo;
-	protected $inmuebleTipoRepo;
+    protected $inmuebleTipoRepo;
 	protected $inmuebleRepo;
     protected $inmuebleImagenRepo;
 
-    public function __construct(DistritoRepo $distritoRepo,
-                                InmuebleRepo $inmuebleRepo,
+    public function __construct(InmuebleRepo $inmuebleRepo,
                                 InmuebleTipoRepo $inmuebleTipoRepo,
                                 InmuebleImagenRepo $inmuebleImagenRepo,
 								HistoryRepo $historyRepo)
 	{
-        $this->distritoRepo = $distritoRepo;
         $this->inmuebleRepo = $inmuebleRepo;
         $this->inmuebleTipoRepo = $inmuebleTipoRepo;
         $this->inmuebleImagenRepo = $inmuebleImagenRepo;
@@ -72,7 +66,6 @@ class InmueblesController extends Controller {
 	public function create()
 	{
 		$category = $this->inmuebleTipoRepo->all()->lists('titulo', 'id');
-        $distrito = $this->distritoRepo->all()->lists('titulo', 'id');
 		$selected = [];
 
 		return view('admin.inmuebles.create', compact('category','distrito','selected'));
@@ -126,7 +119,6 @@ class InmueblesController extends Controller {
 	{
 		$post = $this->inmuebleRepo->findOrFail($id);
         $category = $this->inmuebleTipoRepo->all()->lists('titulo', 'id');
-        $distrito = $this->distritoRepo->all()->lists('titulo', 'id');
 
 		return view('admin.inmuebles.edit', compact('post','category','distrito'));
 	}
@@ -220,30 +212,6 @@ class InmueblesController extends Controller {
 
 
 	/**
-	 * Historial de cambios del registro
-	 */
-	public function history($id)
-	{
-		$post = $this->inmuebleRepo->findOrFail($id);
-		$posts = $this->historyRepo->findHistory($this->tabla, $id);
-
-		return view('admin.inmuebles.history', compact('post','posts'));
-	}
-
-
-	/**
-	 * Lista de registros eliminados
-	 */
-	public function listsDeletes(Request $request)
-	{
-		$posts = $this->inmuebleRepo->findAndPaginateDeletes($request);
-		$category = $this->inmuebleTipoRepo->all()->lists('titulo', 'id');
-
-		return view('admin.inmuebles.list-deletes', compact('posts', 'category'));
-	}
-
-
-	/**
 	 * Eliminacion completa de registro
 	 */
 	public function destroyTotal($id, Request $request)
@@ -263,16 +231,6 @@ class InmueblesController extends Controller {
 		return redirect()->route('admin.inmuebles.listsDeletes');
 	}
 
-
-	/*
-     * Todos los productos en JSON
-     */
-    public function productsAll(Request $request)
-    {
-        $products = $this->inmuebleRepo->buscarJson($request);
-
-        return response()->json($products);
-    }
 
 
     /**
