@@ -39,10 +39,6 @@
         <input type="checkbox" name="remember" value="1"/> Recuerdame </label>
         <button type="submit" class="btn blue pull-right">Login <i class="m-icon-swapright m-icon-white"></i></button>
     </div>
-    <div class="forget-password">
-        <h4>¿Olvidaste tu contraseña?</h4>
-        <p>No te preocupes, haz click <a href="{{ route('auth.login.password') }}"> AQUÍ </a> para restablecer tu contaseña.</p>
-    </div>
 
 {!! Form::close() !!}
 <!-- END LOGIN FORM -->
