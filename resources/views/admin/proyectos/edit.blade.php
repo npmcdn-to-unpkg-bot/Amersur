@@ -45,7 +45,19 @@
 
                                 <div class="form-group">
                                     {!! Form::label('descripcion', 'Descripción') !!}
-                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
+                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3',
+                                    'onkeydown' => 'limitText(this.form.descripcion,this.form.countdown,220);',
+                                    'onkeyup' => 'limitText(this.form.descripcion,this.form.countdown,220);']) !!}
+                                    <span class="help-block">Caracteres permitidos:
+                                        <strong>
+                                            <input name="countdown" type="text" style="border:none; background:none;" value="220" size="3" readonly id="countdown">
+                                        </strong>
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    {!! Form::label('contenido', 'Contenido') !!}
+                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
                                 </div>
 
                             </div>
@@ -58,27 +70,37 @@
                 <div class="col-md-6">
 
                     <div class="portlet box blue-hoki">
-                        <div class="portlet-title"><div class="caption">Imagen</div></div>
+                        <div class="portlet-title"><div class="caption">Opciones</div></div>
 
                         <div class="portlet-body form">
 
-                            <div class="form-body">
+                            <div class="form-horizontal">
 
-                                <div class="form-group">
-                                    {!! Form::file('imagen') !!}
-                                </div>
+                                <div class="form-body">
 
-                                <div class="form-group">
-                                    {!! Form::label('imagen_actual', 'Imagen actual', ['class' => 'control-label']) !!}
-                                    @if($row->imagen <> "")
-                                        <a class="fancybox" href="/upload/{{ $row->imagen_carpeta."".$row->imagen }}" title="{{ $row->titulo }}">
-                                            <img src="/upload/{{ $row->imagen_carpeta }}200x100/{{ $row->imagen }}" alt="" />
-                                        </a>
-                                    @else
-                                        No hay imagen
-                                    @endif
-                                    {!! Form::hidden('imagen_actual', $row->imagen) !!}
-                                    {!! Form::hidden('imagen_actual_carpeta', $row->imagen_carpeta) !!}
+                                    <div class="form-group">
+                                        {!! Form::label('publicar', 'Publicar', ['class' => 'col-md-2 control-label']) !!}
+                                        <div class="col-md-10">
+                                            <div class="radio-list">
+                                                <label class="radio-inline">
+                                                    {!! Form::radio('publicar', '1', null,  ['id' => 'publicar']) !!}
+                                                    Si
+                                                </label>
+                                                <label class="radio-inline">
+                                                    {!! Form::radio('publicar', '0', null,  ['id' => 'publicar']) !!}
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('published_at', 'Fecha de publicación', ['class' => 'col-md-4 control-label']) !!}
+                                        <div class="col-md-8">
+                                            {!! Form::text('published_at', date('Y-m-d H:i:s'), ['class' => 'form-control datetimepicker']) !!}
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -115,4 +137,9 @@
 {!! HTML::script('assets/global/plugins/fancybox/jquery.mousewheel-3.0.6.pack.js') !!}
 {!! HTML::script('assets/global/plugins/fancybox/jquery.fancybox.js') !!}
 {!! HTML::script('assets/admin/pages/scripts/fancybox.js') !!}
+
+{{-- CKEDITOR --}}
+{!! HTML::script('assets/global/plugins/ckeditor/ckeditor.js') !!}
+{!! HTML::script('assets/global/plugins/ckeditor/adapters/jquery.js') !!}
+{!! HTML::script('assets/admin/pages/scripts/ckeditor.js') !!}
 @stop

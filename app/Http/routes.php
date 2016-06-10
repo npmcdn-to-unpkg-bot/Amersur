@@ -132,5 +132,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     //PROYECTOS
     Route::resource('proyectos', 'ProyectosController');
+    Route::put('proyectos-publicar/{id}', ['as' => 'admin.proyectos.publicar', 'uses' => 'ProyectosController@publicar']);
+
+    Route::group(['prefix' => 'proyectos/images'], function(){
+        Route::get('{inmueble}', ['as' => 'admin.proyectos.img.list', 'uses' => 'ProyectosController@photosList' ]);
+        Route::post('{inmueble}/order', ['as' => 'admin.proyectos.img.order', 'uses' => 'ProyectosController@photosOrder' ]);
+        Route::get('{inmueble}/upload', ['as' => 'admin.proyectos.img.create', 'uses' => 'ProyectosController@photosCreate' ]);
+        Route::post('{inmueble}/upload', ['as' => 'admin.proyectos.img.store', 'uses' => 'ProyectosController@photosStore' ]);
+        Route::delete('{inmueble}/delete/{id}', ['as' => 'admin.proyectos.img.delete', 'uses' => 'ProyectosController@photosDelete' ]);
+    });
 
 });

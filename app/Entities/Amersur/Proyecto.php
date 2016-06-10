@@ -9,7 +9,7 @@ class Proyecto extends BaseEntity {
 
     protected $dates = ['deleted_at'];
 
-	protected $fillable = ['titulo','descripcion','imagen','imagen_carpeta'];
+	protected $fillable = ['titulo','descripcion','contenido','publicar','published_at'];
 
     public function image()
     {

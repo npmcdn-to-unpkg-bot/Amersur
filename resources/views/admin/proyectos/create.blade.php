@@ -44,7 +44,19 @@
 
                                 <div class="form-group">
                                     {!! Form::label('descripcion', 'Descripción') !!}
-                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
+                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3',
+                                    'onkeydown' => 'limitText(this.form.descripcion,this.form.countdown,220);',
+                                    'onkeyup' => 'limitText(this.form.descripcion,this.form.countdown,220);']) !!}
+                                    <span class="help-block">Caracteres permitidos:
+                                        <strong>
+                                            <input name="countdown" type="text" style="border:none; background:none;" value="220" size="3" readonly id="countdown">
+                                        </strong>
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    {!! Form::label('contenido', 'Contenido') !!}
+                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
                                 </div>
 
                             </div>
@@ -57,7 +69,7 @@
                 <div class="col-md-6">
 
                     <div class="portlet box blue-hoki">
-                        <div class="portlet-title"><div class="caption">Imagen</div></div>
+                        <div class="portlet-title"><div class="caption">Opciones</div></div>
 
                         <div class="portlet-body form">
 
@@ -66,15 +78,32 @@
                                 <div class="form-body">
 
                                     <div class="form-group">
+                                        {!! Form::label('publicar', 'Publicar', ['class' => 'col-md-2 control-label']) !!}
+                                        <div class="col-md-10">
+                                            <div class="radio-list">
+                                                <label class="radio-inline">
+                                                    {!! Form::radio('publicar', '1', null,  ['id' => 'publicar']) !!}
+                                                    Si
+                                                </label>
+                                                <label class="radio-inline">
+                                                    {!! Form::radio('publicar', '0', null,  ['id' => 'publicar']) !!}
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('published_at', 'Fecha de publicación', ['class' => 'col-md-4 control-label']) !!}
                                         <div class="col-md-8">
-                                            {!! Form::file('imagen', ['onchange' => 'previewFile()']) !!}
-                                            <img id="previewImg" src="" height="200" alt="Image preview...">
+                                            {!! Form::text('published_at', date('Y-m-d H:i:s'), ['class' => 'form-control datetimepicker']) !!}
                                         </div>
                                     </div>
 
                                 </div>
 
                             </div>
+
                         </div>
 
                     </div>
@@ -102,22 +131,8 @@
 @stop
 
 @section('contenido_footer')
-
-<script>
-    function previewFile() {
-        var preview = document.querySelector('img#previewImg');
-        var file    = document.querySelector('input[type=file]').files[0];
-        var reader  = new FileReader();
-
-        reader.onloadend = function () {
-            preview.src = reader.result;
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            preview.src = "";
-        }
-    }
-</script>
+{{-- CKEDITOR --}}
+{!! HTML::script('assets/global/plugins/ckeditor/ckeditor.js') !!}
+{!! HTML::script('assets/global/plugins/ckeditor/adapters/jquery.js') !!}
+{!! HTML::script('assets/admin/pages/scripts/ckeditor.js') !!}
 @stop
