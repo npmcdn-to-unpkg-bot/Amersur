@@ -16,8 +16,18 @@ class ProyectoRepo extends BaseRepo{
     public function paginateProyectos(Request $request)
     {
         return $this->getModel()
-                    ->orderBy('titulo', 'asc')
+                    ->orderBy('published_at','desc')
                     ->paginate();
+    }
+
+    //PROYECTOS EN FRONTEND
+    public function frontPaginateProyectos()
+    {
+        return $this->getModel()
+                    ->orderBy('published_at','desc')
+                    ->where('publicar','1')
+                    ->where('published_at','<',$this->fechaActual())
+                    ->paginate(9);
     }
 
 }

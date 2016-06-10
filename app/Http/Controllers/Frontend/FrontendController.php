@@ -43,7 +43,7 @@ class FrontendController extends Controller {
 
     public function index()
     {
-        $inmuebles = $this->inmuebleRepo->where('publicar', 1)->orderBy('published_at','desc')->paginate(6);
+        $inmuebles = $this->inmuebleRepo->frontPaginateInmuebles();
         $tipos = $this->inmuebleTipoRepo->all()->lists('titulo','id');
         $slider = $this->sliderRepo->where('publicar', 1)->get();
 
@@ -77,7 +77,7 @@ class FrontendController extends Controller {
     //PROYECTOS
     public function proyectos()
     {
-        $proyectos = $this->proyectoRepo->orderByPagination('titulo', 'asc', 9);
+        $proyectos = $this->proyectoRepo->frontPaginateProyectos();
 
         return view('frontend.proyectos', compact('proyectos'));
     }

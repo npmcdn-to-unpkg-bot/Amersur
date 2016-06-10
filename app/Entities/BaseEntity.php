@@ -71,10 +71,4 @@ class BaseEntity extends Model {
         return $fecha;
     }
 
-    public function stateTitulo($state)
-    {
-        $order = OrderState::find($state);
-        return $order->titulo;
-    }
-
 }

@@ -47,6 +47,7 @@
                             <tr>
                                 <th>Titulo</th>
                                 <th class="text-center">Publicar</th>
+                                <th class="text-center">Fecha Publicación</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -55,6 +56,7 @@
                             {{--*/
                             $row_id = $item->id;
                             $row_titulo = $item->titulo;
+                            $row_fecha = convertirFecha($item->published_at);
                             /*--}}
                             <tr data-id="{{ $row_id }}" data-title="{{ $row_titulo }}">
                                 <td>{{ $row_titulo }}</td>
@@ -63,6 +65,7 @@
                                         {!! $item->publicar ? '<span class="badge badge-success badge-roundless">SI</span>' : '<span class="badge badge-default badge-roundless">NO</span>' !!}
                                     </a>
                                 </td>
+                                <td class="text-center">{{ $row_fecha }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">

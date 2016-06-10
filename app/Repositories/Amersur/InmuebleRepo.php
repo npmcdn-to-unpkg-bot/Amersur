@@ -12,14 +12,14 @@ class InmuebleRepo extends BaseRepo{
         return new Inmueble;
     }
 
-    //BUSQUEDAS DE REGISTROS ELIMINADOS
-    public function findAndPaginateDeletes(Request $request)
+    //INMUEBLES EN FRONTEND
+    public function frontPaginateInmuebles()
     {
         return $this->getModel()
-                    ->onlyTrashed()
-                    ->titulo($request->get('titulo'))
-                    ->orderBy('deleted_at', 'desc')
-                    ->paginate();
+                    ->orderBy('published_at','desc')
+                    ->where('publicar','1')
+                    ->where('published_at','<',$this->fechaActual())
+                    ->paginate(6);
     }
 
     //BUSQUEDA DE REGISTROS
@@ -31,15 +31,6 @@ class InmuebleRepo extends BaseRepo{
                     ->publicar($request->get('publicar'))
                     ->orderBy('created_at', 'desc')
                     ->paginate();
-    }
-
-    //MOSTRAR PRODUCTOS DE CATEGORIA
-    public function findProductsCategory($category, $paginate)
-    {
-        return $this->getModel()
-                    ->where('category_id', $category)
-                    ->orderBy('titulo', 'asc')
-                    ->paginate($paginate);
     }
 
     //BUSCAR PRODUCTO - ORDENAR - PAGINACION
@@ -59,6 +50,8 @@ class InmuebleRepo extends BaseRepo{
                     ->bMoneda($request->input('m'))
                     ->bPrecioMax($request->input('p'))
                     ->orderBy('published_at','desc')
+                    ->where('publicar','1')
+                    ->where('published_at','<',$this->fechaActual())
                     ->paginate(10);
     }
 
