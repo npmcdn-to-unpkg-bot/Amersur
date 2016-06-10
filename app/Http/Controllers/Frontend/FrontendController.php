@@ -77,10 +77,17 @@ class FrontendController extends Controller {
     //PROYECTOS
     public function proyectos()
     {
-        $proyectos = $this->proyectoRepo->orderBy('titulo', 'asc');
+        $proyectos = $this->proyectoRepo->orderByPagination('titulo', 'asc', 9);
 
         return view('frontend.proyectos', compact('proyectos'));
+    }
 
+    //PROYECTO SELECCIONADO
+    public function proyecto($id, $url)
+    {
+        $proyecto = $this->proyectoRepo->findOrFail($id);
+
+        return view('frontend.proyectos-nota', compact('proyecto'));
     }
 
     //CONTACTO

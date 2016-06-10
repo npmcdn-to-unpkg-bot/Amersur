@@ -30,6 +30,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     //PROYECTOS
     Route::get('proyectos', ['as' => 'frontend.proyectos', 'uses' => 'FrontendController@proyectos']);
+    Route::get('proyecto/{id}-{url}', ['as' => 'frontend.proyecto', 'uses' => 'FrontendController@proyecto']);
 
     //CONTACTO
     Route::get('contacto', ['as' => 'frontend.contacto.get', 'uses' => 'FrontendController@getContacto']);

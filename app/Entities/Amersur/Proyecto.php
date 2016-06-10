@@ -11,4 +11,14 @@ class Proyecto extends BaseEntity {
 
 	protected $fillable = ['titulo','descripcion','imagen','imagen_carpeta'];
 
+    public function image()
+    {
+        return $this->hasMany(ProyectoImagen::class);
+    }
+
+    public function imagePr()
+    {
+        return $this->hasMany(ProyectoImagen::class)->where('orden', 0)->orderBy('created_at', 'desc')->first();
+    }
+
 }
