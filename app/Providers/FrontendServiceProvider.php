@@ -12,7 +12,7 @@ class FrontendServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		\View::composers([
-            'Amersur\Http\ViewComposers\FrontendComposer' => ['layouts.frontend', 'partials.social']
+            'Amersur\Http\ViewComposers\FrontendComposer' => ['layouts.frontend', 'partials.social', 'frontend.inmuebles-nota', 'frontend.proyectos-nota']
         ]);
 	}
 

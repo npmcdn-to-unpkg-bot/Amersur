@@ -2,14 +2,25 @@
 
 {{--*/
 $row_id = $proyecto->id;
+$row_url = route('frontend.proyecto', [$proyecto->id, $proyecto->slug_url]);
 $row_titulo = $proyecto->titulo;
 $row_descripcion = $proyecto->descripcion;
 $row_contenido = $proyecto->contenido;
 $row_imagen = '/upload/'.$proyecto->imagePr()->imagen_carpeta.'1200x600/'.$proyecto->imagePr()->imagen;
+$row_imagen_og = $comConfig->dominio.'upload/'.$proyecto->imagePr()->imagen_carpeta.'600x400/'.$proyecto->imagePr()->imagen;
 /*--}}
 
 @section('contenido_header')
-    {!! HTML::style('js/fancybox/jquery.fancybox.css?v=2.1.4') !!}
+<!-- Open Graph -->
+<meta property="og:title" content='{{ $row_titulo  }}'>
+<meta property="og:type" content='article' >
+<meta property="og:url" content='{{ $row_url }}' >
+<meta property="og:image" content='{{ $row_imagen_og }}' >
+<meta property="og:site_name" content='{{ $comConfig->titulo }}' >
+<meta property="fb:admins" content='620599104769893'>
+<meta property="og:description" content='{{ $row_descripcion }}'>
+
+{!! HTML::style('js/fancybox/jquery.fancybox.css?v=2.1.4') !!}
 @stop
 
 @section('contenido_body')

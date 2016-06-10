@@ -2,6 +2,7 @@
 
 {{--*/
 $row_id = $inmueble->id;
+$row_url = route('frontend.inmueble', [$inmueble->id, $inmueble->slug_url]);
 $row_titulo = $inmueble->titulo;
 $row_descripcion = $inmueble->descripcion;
 $row_contenido = $inmueble->contenido;
@@ -12,10 +13,20 @@ $row_moneda = moneda($inmueble->moneda);
 $row_precio_alquiler = precio($inmueble->precio_alquiler);
 $row_precio_venta = precio($inmueble->precio_venta);
 $row_imagen = '/upload/'.$inmueble->imagePr()->imagen_carpeta.'1200x600/'.$inmueble->imagePr()->imagen;
+$row_imagen_og = $comConfig->dominio.'upload/'.$inmueble->imagePr()->imagen_carpeta.'600x400/'.$inmueble->imagePr()->imagen;
 /*--}}
 
 @section('contenido_header')
-    {!! HTML::style('js/fancybox/jquery.fancybox.css?v=2.1.4') !!}
+        <!-- Open Graph -->
+<meta property="og:title" content='{{ $row_titulo  }}'>
+<meta property="og:type" content='article' >
+<meta property="og:url" content='{{ $row_url }}' >
+<meta property="og:image" content='{{ $row_imagen_og }}' >
+<meta property="og:site_name" content='{{ $comConfig->titulo }}' >
+<meta property="fb:admins" content='620599104769893'>
+<meta property="og:description" content='{{ $row_descripcion }}'>
+
+{!! HTML::style('js/fancybox/jquery.fancybox.css?v=2.1.4') !!}
 @stop
 
 @section('contenido_body')
