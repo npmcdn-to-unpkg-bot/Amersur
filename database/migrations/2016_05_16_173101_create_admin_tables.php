@@ -167,6 +167,7 @@ class CreateAdminTables extends Migration {
         Schema::drop('contacto_infos');
         Schema::drop('social_media');
         Schema::drop('histories');
+        Schema::drop('empresas');
 	}
 
 }

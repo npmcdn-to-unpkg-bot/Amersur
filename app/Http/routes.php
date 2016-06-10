@@ -28,6 +28,9 @@ Route::group(['namespace' => 'Frontend'], function () {
     //INMUEBLES
     Route::get('inmuebles', ['as' => 'frontend.inmuebles', 'uses' => 'FrontendController@inmuebles']);
 
+    //PROYECTOS
+    Route::get('proyectos', ['as' => 'frontend.proyectos', 'uses' => 'FrontendController@proyectos']);
+
     //CONTACTO
     Route::get('contacto', ['as' => 'frontend.contacto.get', 'uses' => 'FrontendController@getContacto']);
     Route::post('contacto', ['as' => 'frontend.contacto.post', 'uses' => 'FrontendController@postContacto']);
@@ -125,5 +128,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     //AGENDA DE CLIENTE
     Route::resource('agenda', 'AgendaController');
+
+    //PROYECTOS
+    Route::resource('proyectos', 'ProyectosController');
 
 });

@@ -39,7 +39,7 @@
 	<div class="page-header-inner">
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
-			<a href="admin"><img src="/assets/admin/logo-admin.png" alt="Administrador de Contenido"></a>
+			<a href="/admin"><img src="/assets/admin/logo-admin.png" alt="Administrador de Contenido"></a>
 			<div class="menu-toggler sidebar-toggler hide"></div>
 		</div>
 		<!-- END LOGO -->
@@ -189,6 +189,12 @@
                                 Tipos</a>
                         </li>
                     </ul>
+                </li>
+
+                <li {!! (Request::is('admin/proyectos*') ? 'class="active open"' : '') !!}>
+                    <a href="{{ route('admin.proyectos.index') }}">
+                        <span class="title">Proyectos</span>
+                    </a>
                 </li>
 
                 <li {!! (Request::is('admin/agenda*') ? 'class="active open"' : '') !!}>

@@ -7,6 +7,7 @@ use Amersur\Repositories\Admin\ContactoInfoRepo;
 use Amersur\Repositories\Admin\EmpresaRepo;
 use Amersur\Repositories\Amersur\InmuebleRepo;
 use Amersur\Repositories\Amersur\InmuebleTipoRepo;
+use Amersur\Repositories\Amersur\ProyectoRepo;
 use Amersur\Repositories\Admin\SliderRepo;
 
 use Amersur\Entities\Admin\Configuration;
@@ -22,18 +23,21 @@ class FrontendController extends Controller {
     protected $empresaRepo;
     protected $inmuebleRepo;
     protected $inmuebleTipoRepo;
+    protected $proyectoRepo;
     protected $sliderRepo;
 
     public function __construct(ContactoInfoRepo $contactoInfoRepo,
                                 EmpresaRepo $empresaRepo,
                                 InmuebleRepo $inmuebleRepo,
                                 InmuebleTipoRepo $inmuebleTipoRepo,
+                                ProyectoRepo $proyectoRepo,
                                 SliderRepo $sliderRepo)
     {
         $this->contactoInfoRepo = $contactoInfoRepo;
         $this->empresaRepo = $empresaRepo;
         $this->inmuebleRepo = $inmuebleRepo;
         $this->inmuebleTipoRepo = $inmuebleTipoRepo;
+        $this->proyectoRepo = $proyectoRepo;
         $this->sliderRepo = $sliderRepo;
     }
 
@@ -68,6 +72,15 @@ class FrontendController extends Controller {
         $inmueble = $this->inmuebleRepo->findOrFail($id);
 
         return view('frontend.inmuebles-nota', compact('inmueble'));
+    }
+
+    //PROYECTOS
+    public function proyectos()
+    {
+        $proyectos = $this->proyectoRepo->orderBy('titulo', 'asc');
+
+        return view('frontend.proyectos', compact('proyectos'));
+
     }
 
     //CONTACTO

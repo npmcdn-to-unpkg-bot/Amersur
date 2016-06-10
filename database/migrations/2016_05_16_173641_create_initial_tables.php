@@ -72,6 +72,22 @@ class CreateInitialTables extends Migration {
         });
 
         /*
+         * PROYECTOS
+         */
+        Schema::create('proyectos', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('titulo');
+            $table->text('descripcion');
+            $table->string('imagen');
+            $table->string('imagen_carpeta');
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        /*
          * AGENDA DE CONTACTOS
          */
         Schema::create('agenda_contactos', function(Blueprint $table)
@@ -104,6 +120,7 @@ class CreateInitialTables extends Migration {
         Schema::drop('inmuebles');
         Schema::drop('inmueble_imagenes');
         Schema::drop('inmueble_tipos');
+        Schema::drop('proyectos');
         Schema::drop('agenda_contactos');
 	}
 
