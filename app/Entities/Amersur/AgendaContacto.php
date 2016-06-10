@@ -11,39 +11,7 @@ class AgendaContacto extends BaseEntity {
 
 	protected $fillable = ['nombres','apellidos','email','direccion','telefono','nota'];
 
-    public function scopeNombres($query, $value)
-    {
-        if(trim($value) != "")
-        {
-            $query->where('nombres', 'LIKE', "%$value%");
-        }
-    }
-
-    public function scopeApellidos($query, $value)
-    {
-        if(trim($value) != "")
-        {
-            $query->where('apellidos', 'LIKE', "%$value%");
-        }
-    }
-
-    public function scopeEmail($query, $value)
-    {
-        if(trim($value) != "")
-        {
-            $query->where('email', 'LIKE', "%$value%");
-        }
-    }
-
-    public function scopeTelefono($query, $value)
-    {
-        if(trim($value) != "")
-        {
-            $query->where('telefono', 'LIKE', "%$value%");
-        }
-    }
-
-    public function getNombreCompletoAttibutes()
+    public function getNombreCompletoAttribute()
     {
         return $this->nombres.' '.$this->apellidos;
     }
