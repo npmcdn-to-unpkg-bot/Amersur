@@ -11,7 +11,7 @@
             <div class="map">
 
                 <div id="map"
-                     data-map-zoom="16"
+                     data-map-zoom="13"
                      data-map-latlng="{{ $contacto->mapa }}"
                      data-map-marker="imagenes/logo-map.png"
                      data-map-marker-size="47*70"></div>
@@ -20,10 +20,6 @@
 
 
             <div class="contact-grids">
-                <div class="col-md-4 address">
-                    <h3>Info de Contacto</h3>
-                    {!! $contacto->contenido  !!}
-                </div>
                 <div class="col-md-8 contact-form">
                     <h3>Contacto</h3>
 
