@@ -86,13 +86,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('area_total', 'Área', ['class' => 'col-md-4 control-label text-left']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::text('area_total', null, ['class' => 'form-control', 'placeholder' => 'Área']) !!}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
                                         {!! Form::label('precio_venta', 'Precio', ['class' => 'col-md-4 control-label text-left']) !!}
                                         <div class="col-md-8">
                                             {!! Form::text('precio_venta', null, ['class' => 'form-control', 'placeholder' => 'Precio']) !!}
