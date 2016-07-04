@@ -12,11 +12,9 @@ use Amersur\Repositories\Admin\SliderRepo;
 class SlidersController extends Controller {
 
     protected $rules = [
-        'titulo' => 'required',
-        'descripcion' => 'required',
-        'moneda' => 'required',
-        'precio' => 'required',
-        'enlace' => 'required',
+        'titulo' => 'string',
+        'descripcion' => 'string',
+        'enlace' => 'url',
         'publicar' => 'required|in:1,0'
     ];
 
