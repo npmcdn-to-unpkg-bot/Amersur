@@ -45,7 +45,7 @@
                     <table class="table table-striped table-responsive">
                         <thead>
                         <tr>
-                            <th>Titulo</th>
+                            <th>Imagen</th>
                             <th class="text-center">Publicar</th>
                             <th class="text-center">Acciones</th>
                         </tr>
@@ -53,10 +53,10 @@
                         <tbody>
                         @foreach($posts as $item)
                             {{--*/
-                            $imagen = '/upload/'.$item->imagen_carpeta.'100x100/'.$item->imagen;
+                            $imagen = url('/upload/'.$item->imagen_carpeta.'300x80/'.$item->imagen);
                             /*--}}
                             <tr data-id="{{ $item->id }}" data-title="{{ $item->titulo }}">
-                                <td>{{ $item->titulo }}</td>
+                                <td><img src="{{ $imagen }}" alt=""></td>
                                 <td class="text-center">
                                     <a id="publicar-{{ $item->id }}" href="#" data-method="put" class="btn-publicar">
                                         {!! $item->publicar ? '<span class="badge badge-success badge-roundless">SI</span>' : '<span class="badge badge-default badge-roundless">NO</span>' !!}
