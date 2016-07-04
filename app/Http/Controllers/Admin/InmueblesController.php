@@ -24,7 +24,7 @@ class InmueblesController extends Controller {
         'tipo' => 'required|exists:inmueble_tipos,id',
         'area_total' => 'string',
         'precio_venta' => 'numeric',
-        'enlace' => 'required|url',
+        'enlace' => 'url',
         'publicar' => 'required|in:1,0',
         'published_at' => 'required'
 	];
