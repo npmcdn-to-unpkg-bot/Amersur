@@ -6,30 +6,35 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Amersur\Http\Controllers\Controller;
 
-use Amersur\Entities\Amersur\Category;
-use Amersur\Repositories\Amersur\CategoryRepo;
+use Amersur\Entities\Amersur\InmuebleTipo;
+use Amersur\Repositories\Amersur\InmuebleTipoRepo;
 
 class InmuebleTiposController extends Controller {
 
     protected  $rules = [
-        'titulo' => 'required',
-        'publicar' => 'required|in:1,0'
+        'titulo' => 'required'
     ];
 
-    protected $categoryRepo;
+    protected $inmuebleTipoRepo;
 
-    public function __construct(CategoryRepo $categoryRepo)
+    /**
+     * InmuebleTiposController constructor.
+     * @param InmuebleTipoRepo $inmuebleTipoRepo
+     */
+    public function __construct(InmuebleTipoRepo $inmuebleTipoRepo)
     {
-        $this->categoryRepo = $categoryRepo;
+        $this->inmuebleTipoRepo = $inmuebleTipoRepo;
     }
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function index(Request $request)
     {
-        $categories = $this->categoryRepo->findAndPaginate($request);
+        $categories = $this->inmuebleTipoRepo->findAndPaginate($request);
 
         return view('admin.inmueble-tipos.list', compact('categories'));
     }
@@ -49,6 +54,7 @@ class InmuebleTiposController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
+     * @param Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -57,13 +63,12 @@ class InmuebleTiposController extends Controller {
 
         //VARIABLES
         $titulo = $request->input('titulo');
-        $slug_url = $this->categoryRepo->SlugUrl($titulo);
+        $slug_url = $this->inmuebleTipoRepo->SlugUrl($titulo);
 
         //GUARDAR DATOS
-        $category = new Category($request->all());
+        $category = new InmuebleTipo($request->all());
         $category->slug_url = $slug_url;
-        $category->user_id = Auth::user()->profile->id;
-        $this->categoryRepo->create($category, $request->all());
+        $this->inmuebleTipoRepo->create($category, $request->all());
 
         //MENSAJE
         flash()->success('El registro se agregó satisfactoriamente.');
@@ -93,7 +98,7 @@ class InmuebleTiposController extends Controller {
      */
     public function edit($id)
     {
-        $category = $this->categoryRepo->findOrFail($id);
+        $category = $this->inmuebleTipoRepo->findOrFail($id);
 
         return view('admin.inmueble-tipos.edit', compact('category'));
     }
@@ -102,24 +107,25 @@ class InmuebleTiposController extends Controller {
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     * @param Request $request
      * @return Response
      */
     public function update($id, Request $request)
     {
         //BUSCAR ID
-        $category = $this->categoryRepo->findOrFail($id);
+        $category = $this->inmuebleTipoRepo->findOrFail($id);
 
         //VALIDACION DE DATOS
         $this->validate($request, $this->rules);
 
         //VARIABLES
         $titulo = $request->input('titulo');
-        $slug_url = $this->categoryRepo->SlugUrl($titulo);
+        $slug_url = $this->inmuebleTipoRepo->SlugUrl($titulo);
 
         //GUARDAR DATOS
         $category->slug_url = $slug_url;
-        $this->categoryRepo->update($category, $request->all());
+        $this->inmuebleTipoRepo->update($category, $request->all());
 
         //MENSAJE
         flash()->success('El registro se actualizó satisfactoriamente.');
@@ -132,12 +138,13 @@ class InmuebleTiposController extends Controller {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     * @param Request $request
      * @return Response
      */
     public function destroy($id, Request $request)
     {
-        $post = $this->categoryRepo->findOrFail($id);
+        $post = $this->inmuebleTipoRepo->findOrFail($id);
         $post->delete();       
 
         $message = 'El registro se eliminó satisfactoriamente.';

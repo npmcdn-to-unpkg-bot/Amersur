@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('contenido_admin_title')
-    Categorías - Nuevo
+    Tipos de Inmueble - Nuevo
 @stop
 
 @section('contenido_admin')
@@ -26,7 +26,7 @@
 
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Categorías - Nuevo
+                    <i class="fa fa-globe"></i>Tipos de Inmueble - Nuevo
                 </div>
             </div>
 
@@ -37,20 +37,6 @@
                         {!! Form::label('titulo', 'Titulo', ['class' => 'col-md-3 control-label']) !!}
                         <div class="col-md-9">
                             {!! Form::text('titulo', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('publicar', 'Publicar', ['class' => 'col-md-3 control-label']) !!}
-                        <div class="col-md-9">
-                            <label class="checkbox-inline">
-                                {!! Form::radio('publicar', '1', null,  ['id' => 'publicar']) !!}
-                                Si
-                            </label>
-                            <label class="checkbox-inline">
-                                {!! Form::radio('publicar', '0', null,  ['id' => 'publicar']) !!}
-                                No
-                            </label>
                         </div>
                     </div>
 

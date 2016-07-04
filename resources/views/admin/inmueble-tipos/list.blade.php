@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('contenido_admin_title')
-    Categorías
+    Tipos de Inmueble
 @stop
 
 @section('contenido_admin')
@@ -42,43 +42,10 @@
                         
                     </div>
 
-                    {!! Form::model(Request::all(), ['route' => 'admin.inmueble-tipos.index', 'method' => 'GET']) !!}
-
-                        <table class="table table-striped table-bordered" id="table2">
-                            <thead>
-                                <tr>
-                                    <th>Buscar</th>
-                                    <th>Estado</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="col-md-6">
-                                        {!! Form::text('titulo', null, ['class' => 'form-control input-sm', 'placeholder' => 'Registro']) !!}
-                                    </td>
-                                    <td class="col-md-2">
-                                        {!! Form::select('publicar', ['' => 'Seleccionar', '0' => 'No publicado', '1' => 'Publicado'], null, ['class' => 'form-control input-sm']) !!}
-                                    </td>
-                                    <td class="text-center col-md-2">
-                                        {!! Form::button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
-
-                                        <a href="{!! route('admin.inmueble-tipos.index') !!}" class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    {!! Form::close() !!}
-
                     <table class="table table-striped table-responsive">
                         <thead>
                             <tr>
                                 <th>Titulo</th>
-                                <th>URL</th>
-                                <th class="text-center">Publicación</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -86,8 +53,6 @@
                             @foreach($categories as $item)
                             <tr data-id="{{ $item->id }}" data-title="{{ $item->titulo }}">
                                 <td>{{ $item->titulo }}</td>
-                                <td>{{ $item->slug_url }}</td>
-                                <td class="text-center">{{ $item->publicar ? 'Publicado' : 'No publicado' }}</td>
                                 <td class="text-center">
                                     <a title="Editar" href="{{ route('admin.inmueble-tipos.edit', $item->id) }}" class="btn default btn-xs blue"><i class="fa fa-edit"></i></a>
                                     <a title="Eliminar" href="#delete"class="btn-delete btn default btn-xs red"><i class="fa fa-trash-o"></i></a>
