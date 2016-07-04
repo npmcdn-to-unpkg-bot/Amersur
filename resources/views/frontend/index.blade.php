@@ -65,12 +65,13 @@
             {{--*/
             $inmueble_titulo = $inmueble->titulo;
             $inmueble_url = route('frontend.inmueble', [$inmueble->id, $inmueble->slug_url]);
-            $inmueble_descripcion = $inmueble->descripcion;
+            $inmueble_descripcion = $inmueble->contenido;
             $inmueble_imagen = '/upload/'.$inmueble->imagePr()->imagen_carpeta.'400x400/'.$inmueble->imagePr()->imagen;
             $inmueble_moneda = moneda($inmueble->moneda);
             $inmueble_precio = precio($inmueble->precio_venta);
+            $inmueble_tipo = $inmueble->tipo->titulo;
             /*--}}
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-12 col-xs-12">
                 <div class="item item-media">
                     <figure class="item-thumb">
                         <a href="{{ $inmueble_url }}">
@@ -79,10 +80,11 @@
                     </figure>
 
                     <div class="item-content">
+                        <p class="item-category">{{ $inmueble_tipo }}</p>
                         <p class="item-title"><a href="{{ $inmueble_url }}">{{ $inmueble_titulo }}</a></p>
 
                         <div class="item-excerpt">
-                            <p>{{ $inmueble_descripcion }}</p>
+                            <p>{!! $inmueble_descripcion !!}</p>
                         </div>
 
                         <a href="{{ $inmueble_url }}" class="item-more property-price">{{ $inmueble_moneda.$inmueble_precio }}</a>
