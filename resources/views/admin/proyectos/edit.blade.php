@@ -44,20 +44,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('descripcion', 'Descripción') !!}
-                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3',
-                                    'onkeydown' => 'limitText(this.form.descripcion,this.form.countdown,220);',
-                                    'onkeyup' => 'limitText(this.form.descripcion,this.form.countdown,220);']) !!}
-                                    <span class="help-block">Caracteres permitidos:
-                                        <strong>
-                                            <input name="countdown" type="text" style="border:none; background:none;" value="220" size="3" readonly id="countdown">
-                                        </strong>
-                                    </span>
+                                    {!! Form::label('contenido', 'Contenido') !!}
+                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('contenido', 'Contenido') !!}
-                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
+                                    {!! Form::label('enlace', 'Enlace') !!}
+                                    {!! Form::text('enlace', null, ['id' => 'titulo', 'class' => 'form-control']) !!}
                                 </div>
 
                             </div>

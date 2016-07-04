@@ -16,8 +16,8 @@ class ProyectosController extends Controller {
 
     protected  $rules = [
         'titulo' => 'required',
-        'descripcion' => 'required',
-        'contenido' => 'required'
+        'contenido' => 'required',
+        'enlace' => 'required|url'
     ];
 
     protected $proyectoRepo;

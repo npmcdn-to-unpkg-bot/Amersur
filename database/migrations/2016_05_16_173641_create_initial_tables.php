@@ -80,6 +80,7 @@ class CreateInitialTables extends Migration {
             $table->string('slug_url');
             $table->string('descripcion');
             $table->text('contenido');
+            $table->string('enlace');
 
             $table->boolean('publicar')->default(false);
 
