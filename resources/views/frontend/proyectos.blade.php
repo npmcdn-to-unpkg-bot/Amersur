@@ -17,25 +17,24 @@
                 @foreach($proyectos as $item)
                 {{--*/
                 $row_titulo = $item->titulo;
-                $row_url = route('frontend.proyecto', [$item->id, $item->slug_url]);
-                $row_descripcion = $item->descripcion;
-                $row_imagen = '/upload/'.$item->imagePr()->imagen_carpeta.'350x240/'.$item->imagePr()->imagen;
+                $row_url = $item->enlace;
+                $row_descripcion = $item->contenido;
+                $row_imagen = url('/upload/'.$item->imagePr()->imagen_carpeta.'350x350/'.$item->imagePr()->imagen);
                 /*--}}
                 <div class="col-sm-6 col-md-4 row-grids">
                     <div class="srvs-thumbnail thumbnail">
-                        <a href="{{ $row_url }}"><img src="{{ $row_imagen }}" alt="{{ $row_titulo }}"></a>
+                        <a href="{{ $row_url }}" target="_blank"><img class="img-row" data-original="{{ $row_imagen }}" alt="{{ $row_titulo }}"></a>
                         <div class="srvs-caption caption">
                             <h4><a href="{{ $row_url }}">{{ $row_titulo }}</a></h4>
-                            <p>{{ $row_descripcion }}</p>
+                            <p>{!! $row_descripcion !!}</p>
                         </div>
                     </div>
                 </div>
                 @endforeach
 
-                    <div class="col-sm-12 col-xs-12 text-center">
-                        {!! $proyectos->appends(Request::all())->render() !!}
-                    </div>
-
+            </div>
+            <div class="col-sm-12 col-xs-12 text-center">
+                {!! $proyectos->appends(Request::all())->render() !!}
             </div>
         </div>
 
@@ -45,4 +44,25 @@
 @stop
 
 @section('contenido_footer')
+    {{-- LazyLoad --}}
+    {!! HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js') !!}
+    <script>
+        $(document).on("ready", function() {
+            $("img.img-row").lazyload({
+                effect: "fadeIn"
+            });
+        });
+    </script>
+
+
+    {{-- Masonry --}}
+    {!! HTML::script('https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js') !!}
+    <script>
+        $(document).on("ready", function() {
+            $('.srvs-row').masonry({
+                itemSelector: '.row-grids',
+                columnWidth: 345
+            });
+        });
+    </script>
 @stop
