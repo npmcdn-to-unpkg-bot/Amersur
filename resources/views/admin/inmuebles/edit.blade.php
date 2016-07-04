@@ -54,18 +54,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('descripcion', 'Descripción') !!}
-                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3',
-                                    'onkeydown' => 'limitText(this.form.descripcion,this.form.countdown,220);',
-                                    'onkeyup' => 'limitText(this.form.descripcion,this.form.countdown,220);']) !!}
-                                    <span class="help-block">Caracteres permitidos:
-                                        <strong>
-                                            <input name="countdown" type="text" style="border:none; background:none;" value="220" size="3" readonly id="countdown">
-                                        </strong>
-                                    </span>
-                                </div>
-
-                                <div class="form-group">
                                     {!! Form::label('contenido', 'Contenido') !!}
                                     {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
                                 </div>
@@ -103,30 +91,23 @@
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('area_total', 'Área Total', ['class' => 'col-md-4 control-label text-left']) !!}
+                                        {!! Form::label('area_total', 'Área', ['class' => 'col-md-4 control-label text-left']) !!}
                                         <div class="col-md-8">
-                                            {!! Form::text('area_total', null, ['class' => 'form-control', 'placeholder' => 'Área Total']) !!}
+                                            {!! Form::text('area_total', null, ['class' => 'form-control', 'placeholder' => 'Área']) !!}
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('area_construida', 'Área Construida', ['class' => 'col-md-4 control-label text-left']) !!}
+                                        {!! Form::label('precio_venta', 'Precio', ['class' => 'col-md-4 control-label text-left']) !!}
                                         <div class="col-md-8">
-                                            {!! Form::text('area_construida', null, ['class' => 'form-control', 'placeholder' => 'Área Construida']) !!}
+                                            {!! Form::text('precio_venta', null, ['class' => 'form-control', 'placeholder' => 'Precio']) !!}
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('precio_alquiler', 'Precio Alquiler', ['class' => 'col-md-4 control-label text-left']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::text('precio_alquiler', null, ['class' => 'form-control', 'placeholder' => 'Precio Alquiler']) !!}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        {!! Form::label('precio_venta', 'Precio Venta', ['class' => 'col-md-4 control-label text-left']) !!}
-                                        <div class="col-md-8">
-                                            {!! Form::text('precio_venta', null, ['class' => 'form-control', 'placeholder' => 'Precio Venta']) !!}
+                                        {!! Form::label('enlace', 'Enlace', ['class' => 'col-md-2 control-label text-left']) !!}
+                                        <div class="col-md-10">
+                                            {!! Form::text('enlace', null, ['class' => 'form-control', 'placeholder' => 'Enlace']) !!}
                                         </div>
                                     </div>
 
