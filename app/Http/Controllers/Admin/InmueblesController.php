@@ -20,13 +20,11 @@ class InmueblesController extends Controller {
 
 	protected $rules = [
         'titulo' => 'required',
-        'descripcion' => 'required|min:10|max:255',
         'contenido' => 'required',
         'tipo' => 'required|exists:inmueble_tipos,id',
-        'area_total' => 'numeric',
-        'area_construida' => 'numeric',
-        'precio_alquiler' => 'numeric',
+        'area_total' => 'string',
         'precio_venta' => 'numeric',
+        'enlace' => 'required|url',
         'publicar' => 'required|in:1,0',
         'published_at' => 'required'
 	];
