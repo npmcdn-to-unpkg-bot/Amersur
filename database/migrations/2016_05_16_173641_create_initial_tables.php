@@ -30,11 +30,9 @@ class CreateInitialTables extends Migration {
             $table->enum('moneda', ['dolar','soles']);
             $table->integer('inmueble_tipo_id');
 
-            $table->integer('area_total');
-            $table->integer('area_construida');
-
-            $table->double('precio_alquiler');
+            $table->string('area_total',15);
             $table->double('precio_venta');
+            $table->string('enlace');
 
             $table->boolean('publicar')->default(false);
 
