@@ -69,7 +69,7 @@
             $inmueble_precio = precio($inmueble->precio_venta);
             $inmueble_tipo = $inmueble->tipo->titulo;
             /*--}}
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-12 col-xs-12">
                 <div class="item item-media">
                     <figure class="item-thumb">
                         <a href="{{ $inmueble_url }}" target="_blank">
