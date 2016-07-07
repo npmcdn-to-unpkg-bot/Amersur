@@ -43,6 +43,10 @@
 
                     @include('partials.social')
 
+                    <div class="info-contacto">
+                        {!! $comContacto->contenido !!}
+                    </div>
+
                 </div>
             </div>
             <div class="clearfix"> </div>

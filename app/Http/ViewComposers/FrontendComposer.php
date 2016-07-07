@@ -1,5 +1,6 @@
 <?php namespace Amersur\Http\ViewComposers;
 
+use Amersur\Entities\Admin\ContactoInfo;
 use Amersur\Entities\Admin\SocialMedia;
 use Illuminate\Contracts\View\View;
 
@@ -16,8 +17,9 @@ class FrontendComposer {
     {
         $comConfig = Configuration::where('id', 1)->first();
         $comSocial = SocialMedia::where('id', 1)->first();
+        $comContacto = ContactoInfo::where('id', 1)->first();
 
-        $view->with(['comConfig' => $comConfig, 'comSocial' => $comSocial]);
+        $view->with(['comConfig' => $comConfig, 'comSocial' => $comSocial, 'comContacto' => $comContacto]);
     }
 
 }

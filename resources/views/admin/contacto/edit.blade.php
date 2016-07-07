@@ -56,6 +56,13 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        {!! Form::label('contenido', 'Info de Contacto', ['class' => 'col-md-3 control-label']) !!}
+                        <div class="col-md-9">
+                            {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
+                        </div>
+                    </div>
+
                     <!-- Form actions -->
                     <div class="form-group">
                         <div class="col-md-12 text-right">
