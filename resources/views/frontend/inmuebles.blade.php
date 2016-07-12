@@ -57,7 +57,20 @@
         </div>
 
         <div class="offer-grids">
-            <h3>Inmuebles</h3>
+
+            @if(Request::get('t') <> "" OR Request::get('m') <> "" OR Request::get('p') <> "")
+                <h3>Busqueda</h3>
+                <div class="col-md-12 busqueda">
+                    <ul>
+                        <li>Tipo de Inmueble: <strong>{{ $tipos[Request::get('t')] }}</strong></li>
+                        <li>Tipo de Moneda: <strong>@if(Request::get('m') == "dolar") Dólar @elseif(Request::get('m') == "soles") Soles @endif </strong></li>
+                        <li>Precio Máximo: <strong>@if(Request::get('p') > 0) {{ precio(Request::get('p')) }} @else 0 @endif</strong></li>
+                    </ul>
+                    <hr>
+                </div>
+            @else
+                <h3>Inmuebles</h3>
+            @endif
 
             @foreach($inmuebles as $inmueble)
             {{--*/
