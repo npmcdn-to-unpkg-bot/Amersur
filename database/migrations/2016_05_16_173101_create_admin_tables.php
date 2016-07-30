@@ -87,6 +87,7 @@ class CreateAdminTables extends Migration {
             $table->string('email');
             $table->string('telefono');
             $table->boolean('telefono_whatsapp');
+            $table->text('asunto');
             $table->text('mensaje');
             $table->boolean('leido');
             $table->enum('type', ['contacto', 'sugerencia']);

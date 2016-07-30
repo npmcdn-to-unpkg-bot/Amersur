@@ -81,7 +81,7 @@
                         <thead>
                             <tr>
                                 <th>Titulo</th>
-                                <th>Mensaje</th>
+                                <th>Asunto</th>
                                 <th class="text-center">Leído</th>
                                 <th class="text-center">Enviado</th>
                                 <th class="text-center">Acciones</th>
@@ -95,11 +95,11 @@
                             $mensaje_email = $item->email;
                             $mensaje_telefono = $item->telefono;
                             $mensaje_telefono_wh = $item->telefono_whatsapp;
-                            $mensaje_mensaje = substr($item->mensaje, 0, 50);
+                            $mensaje_asunto = $item->asunto;
                             /* --}}
                             <tr data-id="{{ $item->id }}" data-title="{{ $mensaje_nombre }}">
                                 <td>{{ $mensaje_nombre }}</td>
-                                <td>{{ $mensaje_mensaje }}...</td>
+                                <td>{{ $mensaje_asunto }}</td>
                                 <td class="text-center">{!! $item->leido ? '<span class="label label-success">Leído</span>' : '<span class="label label-danger">No leído</span>' !!}</td>
                                 <td class="text-center">{{ $mensaje_fecha  }}</td>
                                 <td class="text-center">

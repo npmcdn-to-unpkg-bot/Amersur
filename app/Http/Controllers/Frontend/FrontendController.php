@@ -108,14 +108,16 @@ class FrontendController extends Controller {
             'nombre' => $request->input('nombre'),
             'email' => $request->input('email'),
             'telefono' => $request->input('telefono'),
-            'mensaje' => e($request->input('mensaje'))
+            'mensaje' => e($request->input('mensaje')),
+            'asunto' => $request->input('asunto')
         ];
 
         $rules = [
-            'nombre'  => 'required',
-            'email'   => 'required|email',
+            'nombre' => 'required',
+            'email' => 'required|email',
             'mensaje' => 'required',
-            'g-recaptcha-response'  => 'required'
+            'asunto' => 'required',
+            'g-recaptcha-response' => 'required'
         ];
 
         //VALIDACION
@@ -139,12 +141,13 @@ class FrontendController extends Controller {
         $fromNombre = $data['nombre'];
         $toEmail = $contacto->email;
         $toNombre = 'Amersur';
+        $asunto = $data['asunto'];
 
         //ENVIO DE EMAIL
-        \Mail::send('emails.frontend.contacto', $data, function($message) use ($fromNombre, $fromEmail, $toEmail, $toNombre){
+        \Mail::send('emails.frontend.contacto', $data, function($message) use ($fromNombre, $fromEmail, $toNombre, $toEmail, $asunto){
             $message->to($toEmail, $toNombre);
             $message->from($fromEmail, $fromNombre);
-            $message->subject('Amersur - Contacto');
+            $message->subject('Amersur - '. $asunto);
         });
 
         $mensaje = 'Tu mensaje ha sido enviado.';

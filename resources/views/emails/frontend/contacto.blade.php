@@ -37,6 +37,7 @@
 
                                         <p><span style="font-weight:bold;font-size:16px">Nombre:</span> {{ $nombre }}</p>
                                         <p><span style="font-weight:bold;font-size:16px">Email:</span> {{ $email }}</p>
+                                        <p><span style="font-weight:bold;font-size:16px">Teléfono:</span> {{ $telefono }}</p>
                                         <p><span style="font-weight:bold;font-size:16px">Mensaje:</span></p>
                                         <p>{{ $mensaje }}</p>
                                     </div>

@@ -30,28 +30,17 @@
             {!! Form::open(['route' => 'frontend.inmuebles', 'method' => 'GET', 'class' => 'property-filters']) !!}
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        {!! Form::label('t', 'Tipo de Inmueble') !!}
-                        <div class="ci-select">
-                            {!! Form::select('t', [''=>'Seleccionar'] + $tipos , null , ['class' => 'postform']) !!}
+                    <div class="form-busqueda-content col-md-6">
+                        <div class="col-md-6 col-sm-12">
+                            {!! Form::label('t', 'Tipo de Inmueble') !!}
+                            <div class="ci-select">
+                                {!! Form::select('t', [''=>'Seleccionar'] + $tipos , null , ['class' => 'postform']) !!}
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        {!! Form::label('m', 'Tipo de Moneda') !!}
-                        <div class="ci-select">
-                            {!! Form::select('m', [''=>'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], null , ['class' => 'postform']) !!}
+                        <div class="col-md-6 col-sm-12">
+                            {!! Form::submit('Buscar propiedades', ['class' => 'property-filters-submit']) !!}
                         </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        {!! Form::label('p', 'Precio máximo') !!}
-                        {!! Form::number('p', null, ['min' => '0', 'step' => '100', 'id' => 'property_max_price']) !!}
-
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        {!! Form::submit('Buscar propiedades', ['class' => 'property-filters-submit']) !!}
                     </div>
                 </div>
 
@@ -88,6 +77,7 @@
                         </div>
 
                         <a href="{{ $inmueble_url }}" class="item-more property-price">{{ $inmueble_moneda.$inmueble_precio }}</a>
+                        <a href="{{ route('frontend.contacto.get').'?a='.$inmueble_titulo }}" class="item-more property-info">Pedir Información</a>
                     </div>
                 </div>
             </div>

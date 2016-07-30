@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+{{--*/
+$asunto = Request::get('a');
+/*--}}
+
 @section('contenido_header')
 @stop
 
@@ -39,6 +43,8 @@
                         {!! Form::email('email', null, ['placeholder' => 'Email', 'required']) !!}
 
                         {!! Form::text('telefono', null, ['placeholder' => 'Teléfono', 'required']) !!}
+
+                        {!! Form::text('asunto', $asunto<>"" ? "Deseo mas informacion sobre el inmueble ".$asunto : "", ['placeholder' => 'Asunto', 'required', 'id' => 'asunto']) !!}
 
                         {!! Form::textarea('mensaje', null, ['placeholder' => 'Mensaje', 'required']) !!}
 

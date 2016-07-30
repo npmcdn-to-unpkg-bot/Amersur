@@ -6,6 +6,7 @@ $mensaje_nombre = $mensaje->nombre.' '.$mensaje->apellidos;
 $mensaje_email = $mensaje->email;
 $mensaje_telefono = $mensaje->telefono;
 $mensaje_telefono_wh = $mensaje->telefono_whatsapp;
+$mensaje_asunto = $mensaje->asunto;
 $mensaje_mensaje = $mensaje->mensaje;
 /* --}}
 
@@ -100,6 +101,18 @@ $mensaje_mensaje = $mensaje->mensaje;
                         </div>
                         <!--/row-->
                         <h3 class="form-section">Mensaje</h3>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Asunto:</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static">{{ $mensaje_asunto }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">

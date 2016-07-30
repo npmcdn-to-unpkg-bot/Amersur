@@ -27,44 +27,31 @@
         <div class="form-busqueda">
             {!! Form::model(Request::all(), ['method' => 'GET', 'class' => 'property-filters']) !!}
 
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        {!! Form::label('tipos', 'Tipo de Inmueble') !!}
+            <div class="row">
+                <div class="form-busqueda-content col-md-6">
+                    <div class="col-md-6 col-sm-12">
+                        {!! Form::label('t', 'Tipo de Inmueble') !!}
                         <div class="ci-select">
                             {!! Form::select('t', [''=>'Seleccionar'] + $tipos , null , ['class' => 'postform']) !!}
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        {!! Form::label('moneda', 'Tipo de Moneda') !!}
-                        <div class="ci-select">
-                            {!! Form::select('m', [''=>'Seleccionar', 'dolar' => 'Dólar', 'soles' => 'Soles'], null , ['class' => 'postform']) !!}
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        {!! Form::label('precio', 'Precio máximo') !!}
-                        {!! Form::number('p', null, ['min' => '0', 'step' => '100', 'id' => 'property_max_price']) !!}
-
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-6 col-sm-12">
                         {!! Form::submit('Buscar propiedades', ['class' => 'property-filters-submit']) !!}
                     </div>
                 </div>
+            </div>
 
             {!! Form::close() !!}
         </div>
 
         <div class="offer-grids">
 
-            @if(Request::get('t') <> "" OR Request::get('m') <> "" OR Request::get('p') <> "")
+            @if(Request::get('t') <> "")
                 <h3>Busqueda</h3>
                 <div class="col-md-12 busqueda">
                     <ul>
                         <li>Tipo de Inmueble: <strong>{{ $tipos[Request::get('t')] }}</strong></li>
-                        <li>Tipo de Moneda: <strong>@if(Request::get('m') == "dolar") Dólar @elseif(Request::get('m') == "soles") Soles @endif </strong></li>
-                        <li>Precio Máximo: <strong>@if(Request::get('p') > 0) {{ precio(Request::get('p')) }} @else 0 @endif</strong></li>
                     </ul>
                     <hr>
                 </div>
@@ -99,6 +86,7 @@
                         </div>
 
                         <a href="{{ $inmueble_url }}" class="item-more property-price">{{ $inmueble_moneda.$inmueble_precio }}</a>
+                        <a href="{{ route('frontend.contacto.get').'?a='.$inmueble_titulo }}" class="item-more property-info">Pedir Información</a>
                     </div>
                 </div>
             </div>

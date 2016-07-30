@@ -9,6 +9,6 @@ class ContactoMensaje extends BaseEntity{
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['nombre','apellidos','email','telefono','telefono_whatsapp','mensaje','leido'];
+    protected $fillable = ['nombre','apellidos','email','telefono','telefono_whatsapp','asunto','mensaje','leido'];
 
 }
