@@ -44,7 +44,7 @@ $asunto = Request::get('a');
 
                         {!! Form::text('telefono', null, ['placeholder' => 'Teléfono', 'required']) !!}
 
-                        {!! Form::text('asunto', $asunto<>"" ? "Deseo mas informacion sobre el inmueble ".$asunto : "", ['placeholder' => 'Asunto', 'required', 'id' => 'asunto']) !!}
+                        {!! Form::text('asunto', $asunto<>"" ? "Deseo más información sobre ".$asunto : "", ['placeholder' => 'Asunto', 'required', 'id' => 'asunto']) !!}
 
                         {!! Form::textarea('mensaje', null, ['placeholder' => 'Mensaje', 'required']) !!}
 

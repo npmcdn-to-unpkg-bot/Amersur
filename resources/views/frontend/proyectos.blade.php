@@ -27,6 +27,7 @@
                         <div class="srvs-caption caption">
                             <h4><a href="{{ $row_url }}">{{ $row_titulo }}</a></h4>
                             <p>{!! $row_descripcion !!}</p>
+                            <a class="info-proyecto" href="{{ route('frontend.contacto.get').'?a='.$row_titulo }}">Pedir más información</a>
                         </div>
                     </div>
                 </div>
