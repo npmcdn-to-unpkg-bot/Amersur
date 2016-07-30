@@ -63,7 +63,11 @@ class FrontendController extends Controller {
         $tipos = $this->inmuebleTipoRepo->all()->lists('titulo','id');
         $inmuebles = $this->inmuebleRepo->buscar($request);
 
-        return view('frontend.inmuebles', compact('inmuebles','tipos'));
+        if($request->get('t') == 4){
+            return redirect()->route('frontend.proyectos');
+        }else{
+            return view('frontend.inmuebles', compact('inmuebles','tipos'));
+        }
     }
 
     //INMUEBLES SELECCIONADO
