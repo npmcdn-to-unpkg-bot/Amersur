@@ -197,6 +197,12 @@
                     </a>
                 </li>
 
+                <li {!! (Request::is('admin/servicio*') ? 'class="active open"' : '') !!}>
+                    <a href="{{ route('admin.servicios.index') }}">
+                        <span class="title">Servicios</span>
+                    </a>
+                </li>
+
                 <li {!! (Request::is('admin/agenda*') ? 'class="active open"' : '') !!}>
                     <a href="{{ route('admin.agenda.index') }}">
                         <span class="title">Agenda</span>

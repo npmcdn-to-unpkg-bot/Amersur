@@ -32,6 +32,10 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('proyectos', ['as' => 'frontend.proyectos', 'uses' => 'FrontendController@proyectos']);
     Route::get('proyecto/{id}-{url}', ['as' => 'frontend.proyecto', 'uses' => 'FrontendController@proyecto']);
 
+    //SERVICIOS
+    Route::get('servicios', ['as' => 'frontend.servicios', 'uses' => 'FrontendController@servicios']);
+    Route::get('servicios/{id}-{url}', ['as' => 'frontend.servicio', 'uses' => 'FrontendController@servicio']);
+
     //CONTACTO
     Route::get('contacto', ['as' => 'frontend.contacto.get', 'uses' => 'FrontendController@getContacto']);
     Route::post('contacto', ['as' => 'frontend.contacto.post', 'uses' => 'FrontendController@postContacto']);
@@ -133,6 +137,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     //PROYECTOS
     Route::resource('proyectos', 'ProyectosController');
     Route::put('proyectos-publicar/{id}', ['as' => 'admin.proyectos.publicar', 'uses' => 'ProyectosController@publicar']);
+
+    //SERVICIOS
+    Route::resource('servicios', 'ServiciosController');
+    Route::put('servicios-publicar/{id}', ['as' => 'admin.servicios.publicar', 'uses' => 'ServiciosController@publicar']);
 
     Route::group(['prefix' => 'proyectos/images'], function(){
         Route::get('{inmueble}', ['as' => 'admin.proyectos.img.list', 'uses' => 'ProyectosController@photosList' ]);

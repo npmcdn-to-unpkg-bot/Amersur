@@ -1,18 +1,17 @@
 @extends('layouts.admin')
 
 @section('contenido_header')
-{{-- FancyBox --}}
-{!! HTML::style('assets/global/plugins/fancybox/jquery.fancybox.css') !!}
 @stop
 
 @section('contenido_admin_title')
-    Proyectos - Editar
+    Servicios - Nuevo
 @stop
 
 @section('contenido_admin')
+<!--main content-->
 <div class="row">
-	<!--row starts-->
-	<div class="col-lg-12">
+    <!--row starts-->
+    <div class="col-lg-12">
 
         <div class="row">
 
@@ -27,7 +26,7 @@
                 </div>
             @endif
 
-            {!! Form::model($row, ['route' => ['admin.proyectos.update', $row->id], 'method' => 'PUT', 'files' => 'true', 'id' => 'formRegister']) !!}
+            {!! Form::open(['route' => 'admin.servicios.store', 'method' => 'POST', 'files' => 'true', 'id' => 'formRegister']) !!}
 
                 <div class="col-md-6">
 
@@ -44,13 +43,20 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('contenido', 'Contenido') !!}
-                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
+                                    {!! Form::label('descripcion', 'Descripción') !!}
+                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3',
+                                    'onkeydown' => 'limitText(this.form.descripcion,this.form.countdown,220);',
+                                    'onkeyup' => 'limitText(this.form.descripcion,this.form.countdown,220);']) !!}
+                                    <span class="help-block">Caracteres permitidos:
+                                        <strong>
+                                            <input name="countdown" type="text" style="border:none; background:none;" value="220" size="3" readonly id="countdown">
+                                        </strong>
+                                    </span>
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('enlace', 'Enlace') !!}
-                                    {!! Form::text('enlace', null, ['id' => 'titulo', 'class' => 'form-control']) !!}
+                                    {!! Form::label('contenido', 'Contenido') !!}
+                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
                                 </div>
 
                             </div>
@@ -76,7 +82,7 @@
                                         <div class="col-md-10">
                                             <div class="radio-list">
                                                 <label class="radio-inline">
-                                                    {!! Form::radio('publicar', '1', null,  ['id' => 'publicar']) !!}
+                                                    {!! Form::radio('publicar', '1', true,  ['id' => 'publicar']) !!}
                                                     Si
                                                 </label>
                                                 <label class="radio-inline">
@@ -90,7 +96,7 @@
                                     <div class="form-group">
                                         {!! Form::label('published_at', 'Fecha de publicación', ['class' => 'col-md-4 control-label']) !!}
                                         <div class="col-md-8">
-                                            {!! Form::text('published_at', null, ['class' => 'form-control datetimepicker']) !!}
+                                            {!! Form::text('published_at', date('Y-m-d H:i:s'), ['class' => 'form-control datetimepicker']) !!}
                                         </div>
                                     </div>
 
@@ -105,32 +111,26 @@
                 </div>
 
                 <div class="col-md-12">
-
                     <div class="form-group">
                         <div class="col-md-12 text-right">
-                            {!! Form::submit('Guardar cambios', ['class' => 'btn btn-responsive btn-primary btn-md']) !!}
-                            <a href="{{ route('admin.proyectos.index') }}" class="btn btn-responsive btn-default btn-md">Cancelar</a>
+                            {!! Form::submit('Guardar', ['class' => 'btn btn-responsive btn-primary btn-md']) !!}
+                            <a href="{{ route('admin.servicios.index') }}" class="btn btn-responsive btn-default btn-md">Cancelar</a>
                         </div>
                     </div>
-
                 </div>
 
             {!! Form::close() !!}
 
         </div>
 
-	</div>
-	<!--md-6 ends-->
+    </div>
+    <!--md-6 ends-->
 
 </div>
+
 @stop
 
 @section('contenido_footer')
-{{-- FANCYBOX --}}
-{!! HTML::script('assets/global/plugins/fancybox/jquery.mousewheel-3.0.6.pack.js') !!}
-{!! HTML::script('assets/global/plugins/fancybox/jquery.fancybox.js') !!}
-{!! HTML::script('assets/admin/pages/scripts/fancybox.js') !!}
-
 {{-- CKEDITOR --}}
 {!! HTML::script('assets/global/plugins/ckeditor/ckeditor.js') !!}
 {!! HTML::script('assets/global/plugins/ckeditor/adapters/jquery.js') !!}

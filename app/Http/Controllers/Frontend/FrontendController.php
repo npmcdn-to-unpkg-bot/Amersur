@@ -1,5 +1,6 @@
 <?php namespace Amersur\Http\Controllers\Frontend;
 
+use Amersur\Repositories\Amersur\ServicioRepo;
 use Illuminate\Http\Request;
 use Amersur\Http\Controllers\Controller;
 
@@ -24,6 +25,7 @@ class FrontendController extends Controller {
     protected $inmuebleRepo;
     protected $inmuebleTipoRepo;
     protected $proyectoRepo;
+    protected $servicioRepo;
     protected $sliderRepo;
 
     public function __construct(ContactoInfoRepo $contactoInfoRepo,
@@ -31,6 +33,7 @@ class FrontendController extends Controller {
                                 InmuebleRepo $inmuebleRepo,
                                 InmuebleTipoRepo $inmuebleTipoRepo,
                                 ProyectoRepo $proyectoRepo,
+                                ServicioRepo $servicioRepo,
                                 SliderRepo $sliderRepo)
     {
         $this->contactoInfoRepo = $contactoInfoRepo;
@@ -38,6 +41,7 @@ class FrontendController extends Controller {
         $this->inmuebleRepo = $inmuebleRepo;
         $this->inmuebleTipoRepo = $inmuebleTipoRepo;
         $this->proyectoRepo = $proyectoRepo;
+        $this->servicioRepo = $servicioRepo;
         $this->sliderRepo = $sliderRepo;
     }
 
@@ -92,6 +96,22 @@ class FrontendController extends Controller {
         $proyecto = $this->proyectoRepo->findOrFail($id);
 
         return view('frontend.proyectos-nota', compact('proyecto'));
+    }
+
+    //SERVICIOS
+    public function servicios()
+    {
+        $rows = $this->servicioRepo->frontPaginateServicios();
+
+        return view('frontend.servicios', compact('rows'));
+    }
+
+    //PROYECTO SELECCIONADO
+    public function servicio($id, $url)
+    {
+        $row = $this->servicioRepo->findOrFail($id);
+
+        return view('frontend.servicios-nota', compact('row'));
     }
 
     //CONTACTO

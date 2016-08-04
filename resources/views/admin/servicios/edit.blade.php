@@ -6,7 +6,7 @@
 @stop
 
 @section('contenido_admin_title')
-    Proyectos - Editar
+    Servicios - Editar
 @stop
 
 @section('contenido_admin')
@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            {!! Form::model($row, ['route' => ['admin.proyectos.update', $row->id], 'method' => 'PUT', 'files' => 'true', 'id' => 'formRegister']) !!}
+            {!! Form::model($row, ['route' => ['admin.servicios.update', $row->id], 'method' => 'PUT', 'files' => 'true', 'id' => 'formRegister']) !!}
 
                 <div class="col-md-6">
 
@@ -44,13 +44,20 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('contenido', 'Contenido') !!}
-                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
+                                    {!! Form::label('descripcion', 'Descripción') !!}
+                                    {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3',
+                                    'onkeydown' => 'limitText(this.form.descripcion,this.form.countdown,220);',
+                                    'onkeyup' => 'limitText(this.form.descripcion,this.form.countdown,220);']) !!}
+                                    <span class="help-block">Caracteres permitidos:
+                                        <strong>
+                                            <input name="countdown" type="text" style="border:none; background:none;" value="220" size="3" readonly id="countdown">
+                                        </strong>
+                                    </span>
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('enlace', 'Enlace') !!}
-                                    {!! Form::text('enlace', null, ['id' => 'titulo', 'class' => 'form-control']) !!}
+                                    {!! Form::label('contenido', 'Contenido') !!}
+                                    {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor_full']) !!}
                                 </div>
 
                             </div>
@@ -109,7 +116,7 @@
                     <div class="form-group">
                         <div class="col-md-12 text-right">
                             {!! Form::submit('Guardar cambios', ['class' => 'btn btn-responsive btn-primary btn-md']) !!}
-                            <a href="{{ route('admin.proyectos.index') }}" class="btn btn-responsive btn-default btn-md">Cancelar</a>
+                            <a href="{{ route('admin.servicios.index') }}" class="btn btn-responsive btn-default btn-md">Cancelar</a>
                         </div>
                     </div>
 

@@ -36,6 +36,7 @@
                     <ul class=" nav nav-sidebar">
                         <li {!! (Request::is('/') ? 'class="active"' : '') !!}><a href="/">Inicio</a></li>
                         <li {!! (Request::is('nosotros*') ? 'class="active"' : '') !!}><a href="/nosotros">Nosotros</a></li>
+                        <li {!! (Request::is('servicio*') ? 'class="active"' : '') !!}><a href="/servicios">Servicios</a></li>
                         <li {!! (Request::is('proyecto*') ? 'class="active"' : '') !!}><a href="/proyectos">Proyectos</a></li>
                         <li {!! (Request::is('inmueble*') ? 'class="active"' : '') !!}><a href="/inmuebles">Inmuebles</a></li>
                         <li {!! (Request::is('contacto*') ? 'class="active"' : '') !!}><a href="/contacto">Contacto</a></li>
