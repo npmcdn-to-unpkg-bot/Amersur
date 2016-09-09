@@ -58,7 +58,7 @@
 
 
     {{-- Masonry --}}
-    {!! HTML::script('https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js') !!}
+    {!! HTML::script('https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js') !!}
     <script>
         $(document).on("ready", function() {
             $('.srvs-row').masonry({

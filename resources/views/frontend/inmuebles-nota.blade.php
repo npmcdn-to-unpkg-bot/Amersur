@@ -126,7 +126,7 @@ $row_imagen_og = $comConfig->dominio.'upload/'.$inmueble->imagePr()->imagen_carp
 
     {!! HTML::script('js/fancybox/jquery.fancybox.js?v=2.1.4') !!}
 
-    {!! HTML::script('https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js') !!}
+    {!! HTML::script('https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js') !!}
 
     <script>
         $(document).on("ready", function() {
